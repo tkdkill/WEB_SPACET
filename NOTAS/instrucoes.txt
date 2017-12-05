@@ -1,0 +1,3 @@
+//Comados sass
+//este codigo permite monitorizar o nosso ficheiro de scss e criar o fichei tradicioanl css
+//sass -w sass:inc              -->  sass -w inc/sass:inc
