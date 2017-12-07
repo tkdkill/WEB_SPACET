@@ -17,4 +17,3 @@
     <link rel="stylesheet" href="inc\main.css">
   </head>
   <body>
-    <h1 class="#">Hello, world!</h1>

@@ -3,11 +3,18 @@
     // ==========================================
     // Index
     // ==========================================
+    // controlo de sessão
+    session_start();
+    if(!isset($_SESSION['a'])){
+        $_SESSION['a'] = 'inicio';
+    }
 
     include_once('_cabecalho.php');
 
 
-    echo '<p>Teste de fontawesome <span class="fa fa-times"></p>';
+    echo '<h1 class="text-center">Olá SPACE</h1>';
+
+    include_once('routes.php');
 
     
 
