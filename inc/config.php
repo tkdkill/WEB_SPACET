@@ -1,8 +1,18 @@
 <?php
 
+    /* // verificar a sessão
+    if(!isset($_SESSION['a'])){
+        exit();
+    } */
+
     return[
-        'NOME_BD' => 'minha_base_dados',
-        'PASS_BD' => 'abc123'
+         // variáveis da bd
+    'BD_HOST'           => 'localhost',
+    'BD_DATABASE'       => '',
+    'BD_CHARSET'        => 'utf8',
+    'BD_USERNAME'       => '',
+    'BD_PASSWORD'       => '',
+    //variáveis do email
     ]
 
 ?>
