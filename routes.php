@@ -14,7 +14,7 @@ if(isset($_GET['a'])){
 }
 
 // ==================================
-// ROUTS
+// ROUTES
 // ==================================
 switch ($a) {
     //apresentar a página inicial
@@ -27,11 +27,20 @@ switch ($a) {
         break;
     //abre o menu do setup
     case 'setup':
-        include_once('setup/instalacao.php');
+        include_once('setup/setup.php');
         break;
+
+    //===============================
+    // setups
+    //setup - criar a base de dados 
+    case 'setup-criar-bd':
+        include_once('setup/setup.php');
+        break;
+
+
     default:
         # code...
-        break;
+        break;    
 }
 
 ?>

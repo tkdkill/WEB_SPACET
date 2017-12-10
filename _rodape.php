@@ -3,8 +3,10 @@
     // Rodapé
     // ==========================================
 ?>
-<hr>
-<p>Rodapé</p>
+<div class="rodape text-center">
+  <p>Rodapé</p>
+  </div>  
+
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

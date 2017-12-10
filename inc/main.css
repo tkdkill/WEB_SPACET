@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ficheiro principal de CSS */
 * {
   margin: 0px;
@@ -122,5 +123,17 @@
 
 .pad-40 {
   padding: 40px; }
+
+/* Cabeçalho de CSS */
+.cabecalho {
+  padding: 20px;
+  background-color: black;
+  color: white; }
+
+/* Rodapé de CSS */
+.rodape {
+  padding: 20px;
+  background-color: black;
+  color: white; }
 
 /*# sourceMappingURL=main.css.map */

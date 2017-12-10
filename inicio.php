@@ -8,8 +8,15 @@ if(!isset($_SESSION['a'])){
     exit();
 }
 ?>
-<p>INICIO</p>
-<a href="?a=about">Acerca de</a>
-|
-<a href="?a=setup">instalação</a>
+<div class="conteiner-fluid pad-20">
+    
+    <!-- butão para aceder ao setupe -->
+    <div class="text-center">  
+        <a href="?a=setup" class="btn btn-secondary">Setup</a>
+
+    </div>
+    
+
+</div>
+
 
