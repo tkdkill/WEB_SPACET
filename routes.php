@@ -36,6 +36,10 @@ switch ($a) {
     case 'setup-criar-bd':
         include_once('setup/setup.php');
         break;
+    //setup -inserir utilizadores 
+    case 'setup_inserir_utilizadores':
+        include_once('setup/setup.php');
+        break;    
 
 
     default:

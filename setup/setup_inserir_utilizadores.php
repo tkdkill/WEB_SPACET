@@ -24,6 +24,7 @@
         'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, criado_em, atualizado_em)
          VALUES(:utilizador, :palavra_passe, :nome, :email, :criado_em, :atualizado_em)',
          $parametros);
+
 ?>
 
 <div class="alert alert-success text-center">Utilizadores inseridos com sucesso.</div>
