@@ -124,6 +124,21 @@
 .pad-40 {
   padding: 40px; }
 
+.btn-size-100 {
+  width: 100px; }
+
+.btn-size-150 {
+  width: 150px; }
+
+.btn-size-200 {
+  width: 200px; }
+
+.btn-size-250 {
+  width: 250px; }
+
+.btn-size-300 {
+  width: 300px; }
+
 /* Cabeçalho de CSS */
 .cabecalho {
   padding: 20px;
