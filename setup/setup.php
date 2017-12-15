@@ -19,6 +19,12 @@ if(!isset($_SESSION['a'])){
             //executa os procidimentos para criação da base de dados
             include('setup/setup_criar_bd.php');
             break;
+            
+        case 'setup_inserir_utilizadores':
+            //inserir utilizadores
+            include('setup/setup_inserir_utilizadores.php');
+            break;
+            
         
     }
 
@@ -29,7 +35,7 @@ if(!isset($_SESSION['a'])){
     <h2 class="text-center">SETUP</h2>
     <div class="text-center">  
         <p><a href="?a=setup-criar-bd" class="btn btn-secondary btn-size-250">Criar a Base de Dados</a></p>
-        <p><a href="#" class="btn btn-secondary btn-size-250">Iserir Utilizadores</a></p>
+        <p><a href="?a=setup_inserir_utilizadores" class="btn btn-secondary btn-size-250">Iserir Utilizadores</a></p>
         <hr>
         <p><a href="?a=inicio" class="btn btn-secondary btn-size-150">Voltal</a></p>
 

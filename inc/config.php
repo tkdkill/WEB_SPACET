@@ -8,10 +8,10 @@
     return[
          // variáveis da bd
     'BD_HOST'           => 'localhost',
-    'BD_DATABASE'       => '',
+    'BD_DATABASE'       => 'spacet',
     'BD_CHARSET'        => 'utf8',
-    'BD_USERNAME'       => '',
-    'BD_PASSWORD'       => '',
+    'BD_USERNAME'       => 'root',
+    'BD_PASSWORD'       => 'apax2972',
     //variáveis do email
     ]
 
