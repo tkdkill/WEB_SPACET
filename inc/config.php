@@ -11,7 +11,7 @@
     'BD_DATABASE'       => 'spacet',
     'BD_CHARSET'        => 'utf8',
     'BD_USERNAME'       => 'root',
-    'BD_PASSWORD'       => 'apax2972',
+    'BD_PASSWORD'       => '',
     //variáveis do email
     ]
 
