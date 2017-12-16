@@ -8,7 +8,37 @@
         exit();
     }
 
+    $erro = false;
+    $mensagem = '';
     //verificar se foi feito um POST
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //verificar se os dados do login estão corretos
+        $gestor = new cl_gestorBD();
+
+        //preparação dos parâmetros
+        $parametros = [
+            ':utilizador'       => $_POST['text_utilizador'],
+            ':palavra_passe'    => md5($_POST['text_password'])
+        ];
+
+        //procurar o utilizador na base de dados
+        $dados = $gestor->EXE_QUERY(
+            'SELECT * FROM utilizadores
+             WHERE utilizador = :utilizador
+             AND palavra_passe = :palavra_passe',$parametros);
+        
+        if(count($dados) == 0){
+            //login inválido
+            $erro = true;
+            $mensagem = 'Dados de login inválidos.';
+            echo 'Erro';
+        }else{
+            //inicia a sessão
+            funcoes::IniciarSessao($dados);
+            echo 'Sessão efetuada';
+        }
+    }
+
 
 ?>
 
@@ -17,10 +47,10 @@
         <div class="col-md-4 card m-3 p-3">
             <form action="?a=login" method="post">
                 <div class="form-group">
-                    <input type="text" id="text_utilizador" class="form-control" placeholder="Utilizador" name="Utilizador">
+                    <input type="text" name="text_utilizador" class="form-control" placeholder="Utilizador" name="Utilizador">
                 </div>
                 <div class="form-group">
-                    <input type="password" id="text_password" class="form-control" placeholder="Password" name="Password">
+                    <input type="password" name="text_password" class="form-control" placeholder="Password" name="Password">
                 </div>
                 <div class="form-group text-center">
                     <button role="submit" class="btn btn-primary btn-size-150">Login</button>
