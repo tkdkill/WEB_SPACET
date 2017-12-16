@@ -54,10 +54,10 @@
         <div class="col-md-4 card m-3 p-3">
             <form action="?a=login" method="post">
                 <div class="form-group">
-                    <input type="text" name="text_utilizador" class="form-control" placeholder="Utilizador" name="Utilizador">
+                    <input type="text" name="text_utilizador" class="form-control" placeholder="Utilizador">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="text_password" class="form-control" placeholder="Password" name="Password">
+                    <input type="password" name="text_password" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-group text-center">
                     <button role="submit" class="btn btn-primary btn-size-150">Login</button>
