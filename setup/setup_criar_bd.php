@@ -38,13 +38,13 @@ if(!isset($_SESSION['a'])){
 
     // -------------------------
     // logs
-    /* $gestor->EXE_NON_QUERY(
+    $gestor->EXE_NON_QUERY(
         'CREATE TABLE logs('.
-        'id_log                         BIGINT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, '.
-        'data_hora                      DATETIME, '.
-        'utilizador                     NVARCHAR(50), '.
-        'mensagem                       NVARCHAR(200)'
-    ); */
+        'id_log                     BIGINT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, '.
+        'data_hora                  DATETIME, '.
+        'utilizador                 NVARCHAR(50), '.
+        'mensagem                   NVARCHAR(200)'
+    );
 
 ?>
 <div class="alert alert-success text-center">Base de dados criada com sucesso.</div>

@@ -37,7 +37,7 @@ if(!isset($_SESSION['a'])){
         <p><a href="?a=setup-criar-bd" class="btn btn-secondary btn-size-250">Criar a Base de Dados</a></p>
         <p><a href="?a=setup_inserir_utilizadores" class="btn btn-secondary btn-size-250">Iserir Utilizadores</a></p>
         <hr>
-        <p><a href="?a=inicio" class="btn btn-secondary btn-size-150">Voltal</a></p>
+        <p><a href="?a=inicio" class="btn btn-secondary btn-size-150">Voltar</a></p>
 
     </div>
 </div>
