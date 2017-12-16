@@ -1,0 +1,16 @@
+/*Barra dos utilizadores*/
+    .barra_utilizadores {
+    margin: 0px;
+    padding: 20px;
+    text-align: right;
+    background-color: rgb(32, 32, 32);
+    color: rgb(143, 169, 226);
+}
+
+.barra_utilizadores_inativo {
+    color: rgb(80, 80, 80);
+}
+
+.barra_utilizadores_ativo{
+    color: white;
+}

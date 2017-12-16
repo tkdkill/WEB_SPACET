@@ -15,6 +15,9 @@
     
     include_once('inc/gestorBD.php');
 
+     //barra do utilizador
+    include_once('users/barra_utilizador.php');
+
     include_once('_cabecalho.php');
 
     include_once('routes.php');

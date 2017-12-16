@@ -18,6 +18,9 @@ if(!funcoes::verificarLogin()){
     $a = 'login';
 }
 
+/* //destruir sessão
+funcoes::DestroiSessao(); */
+
 // ======================================
 // ROUTES
 // ======================================
@@ -27,6 +30,15 @@ switch ($a) {
     case 'login':
         include_once('users/login.php');
         break;
+    // logout
+    case 'logout':                          
+        include_once('users/logout.php'); 
+        break;
+    // recuperar password
+    case 'recuperar_password':              
+        include_once('users/recuperar_password.php'); 
+        break;
+
     //apresentar a página inicial
     case 'inicio':
         include_once('inicio.php');
@@ -41,7 +53,7 @@ switch ($a) {
         break;
 
     //===============================
-    // setups
+    // SETUP
     //setup - criar a base de dados 
     case 'setup-criar-bd':
         include_once('setup/setup.php');
@@ -49,12 +61,7 @@ switch ($a) {
     //setup -inserir utilizadores 
     case 'setup_inserir_utilizadores':
         include_once('setup/setup.php');
-        break;    
-
-
-    default:
-        # code...
-        break;    
+        break;       
 }
 
 ?>

@@ -151,4 +151,18 @@
   background-color: black;
   color: white; }
 
+/*Barra dos utilizadores*/
+.barra_utilizadores {
+  margin: 0px;
+  padding: 20px;
+  text-align: right;
+  background-color: #202020;
+  color: #8fa9e2; }
+
+.barra_utilizadores_inativo {
+  color: #505050; }
+
+.barra_utilizadores_ativo {
+  color: white; }
+
 /*# sourceMappingURL=main.css.map */

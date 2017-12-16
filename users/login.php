@@ -8,7 +8,7 @@
         exit();
     }
 
-    $erro = false;
+    $erro = true;
     $mensagem = '';
     //verificar se foi feito um POST
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -31,17 +31,24 @@
             //login inválido
             $erro = true;
             $mensagem = 'Dados de login inválidos.';
-            echo 'Erro';
         }else{
+            //login valido
+            $erro = false;
             //inicia a sessão
             funcoes::IniciarSessao($dados);
-            echo 'Sessão efetuada';
         }
     }
 
-
 ?>
 
+<?php if($erro) : //============================?>
+
+    <?php
+        if($mensagem != ''){
+            echo '<div class="alert alert-danger text-center">'.$mensagem.'</div>';
+        }
+    ?>
+    
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-4 card m-3 p-3">
@@ -59,3 +66,16 @@
         </div>
     </div>
 </div>
+<?php else : //============================?>
+
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4 card m-3 p-3 text-center">
+            <p>Bem-vindo, <strong><?php echo $dados[0]['nome'] ?></strong></p>
+            <a href="?a=inicio" class="btn btn-primary">Avançar</a>
+        </div>
+    </div>
+</div>
+
+<?php endif; ?>
+
