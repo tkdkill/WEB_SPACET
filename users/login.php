@@ -63,6 +63,11 @@
                     <button role="submit" class="btn btn-primary btn-size-150">Login</button>
                 </div>
             </form>
+
+            <div class="text-center">
+                <a href="?a=recuperar_password">Recuperar Password</a>
+            </div>          
+
         </div>
     </div>
 </div>

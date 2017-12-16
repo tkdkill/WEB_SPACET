@@ -1,6 +1,6 @@
 <?php
     // ========================================
-    // formulário de login
+    // formulário de recuperação de password
     // ========================================    
     
     // verificar a sessão

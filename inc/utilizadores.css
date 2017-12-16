@@ -5,11 +5,16 @@
   text-align: right;
   background-color: #202020;
   color: #8fa9e2; }
+  .barra_utilizadores a {
+    text-decoration: none;
+    color: #d4d4d4; }
+  .barra_utilizadores a:hover {
+    color: white; }
 
-.barra_utilizadores_inativo {
-  color: #505050; }
+.barra_utilizador_inativo {
+  color: #616161; }
 
-.barra_utilizadores_ativo {
+.barra_utilizador_ativo {
   color: white; }
 
 /*# sourceMappingURL=utilizadores.css.map */
