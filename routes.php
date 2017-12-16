@@ -13,10 +13,20 @@ if(isset($_GET['a'])){
     $a = $_GET['a'];
 }
 
-// ==================================
+//verificar o login
+if(!funcoes::verificarLogin()){
+    $a = 'login';
+}
+
+// ======================================
 // ROUTES
-// ==================================
+// ======================================
 switch ($a) {
+    // ==================================
+    // login
+    case 'login':
+        include_once('users/login.php');
+        break;
     //apresentar a página inicial
     case 'inicio':
         include_once('inicio.php');

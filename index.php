@@ -11,6 +11,8 @@
 
     //inclui as funções necessárias do sistema
 
+    include_once('inc/funcoes.php');
+    
     include_once('inc/gestorBD.php');
 
     include_once('_cabecalho.php');
