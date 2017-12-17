@@ -44,7 +44,13 @@
             //envicar o email
             //echo $nova_password;
             $email = new emails();
-            $mensagem_emviada = $email->EnviarEmailRecuperacaoPW($nova_password);
+            //preparação dos dados de email
+            $temp = [
+                $dados[0]['email'],
+                'SPACET - Recuperação da passwoed',
+                '<h3>SPACET</h3><h4>RECUPERAÇÃO DA PASSWORD</h4><P>'.$nova_password.'</P>',
+            ];
+            $mensagem_emviada = $email->EnviarEmail($temp);
 
             //alterar a senha na bd
             if($mensagem_emviada){

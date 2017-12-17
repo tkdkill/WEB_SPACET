@@ -43,7 +43,7 @@ if(!isset($_SESSION['a'])){
         'id_log                     BIGINT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, '.
         'data_hora                  DATETIME, '.
         'utilizador                 NVARCHAR(50), '.
-        'mensagem                   NVARCHAR(200)'
+        'mensagem                   NVARCHAR(200))'
     );
 
 ?>
