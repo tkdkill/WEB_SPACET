@@ -30,11 +30,33 @@
         if(count($dados) == 0){
             $erro = true;
             $mensagem = 'Não foi encontrado conta de utilizador com esse email!';
-            
+
             //no caso de não haver erro (foi encontrada conta de utilizador com email indicado)
         }else{
             // recuperar a password
-            echo 'OK';
+            $nova_password = funcoes::CriarCodigoAlfanumerico(15);
+            /*
+            enviar email
+            caso email com sucesso alterar a senha na bd
+            
+            aparecer informações no browser
+             */
+            //envicar o email
+            echo $nova_password;
+
+            //alterar a senha na bd
+            $id_utilizador = $dados[0]['id_utilizador'];
+
+            $parametros = [
+                ':id_utilizador' => $id_utilizador,
+                ':palavra_passe' => md5($nova_password)
+            ];
+
+            //atualização na base de dados
+            $gestor->EXE_NON_QUERY(
+                'UPDATE utilizadores 
+                 SET palavra_passe = :palavra_passe 
+                 WHERE id_utilizador = :id_utilizador',$parametros);
         }
         
         

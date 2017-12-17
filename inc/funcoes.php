@@ -36,6 +36,18 @@
             unset($_SESSION['id_utilizador']);
             unset($_SESSION['nome']);
         }
+
+        //=================================================
+        public static function CriarCodigoAlfanumerico($numChars){
+            //criar um código leatório alfanumérico
+            $codigo = '';
+            $caracteres = 'abcdefghijklmopqrstvxywzABCDEFGHIJKLMOPQRSTVXYWZ0123456789!?*()-%';
+            for($i = 0; $i < $numChars; $i++){
+                $codigo .= substr($caracteres, rand(0, strlen($caracteres)), 1);
+            }
+            return $codigo;
+
+        }
     }
     
 
