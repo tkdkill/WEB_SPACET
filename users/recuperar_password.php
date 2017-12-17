@@ -42,10 +42,13 @@
             aparecer informações no browser
              */
             //envicar o email
-            echo $nova_password;
+            //echo $nova_password;
+            $email = new emails();
+            $mensagem_emviada = $email->EnviarEmailRecuperacaoPW($nova_password);
 
             //alterar a senha na bd
-            $id_utilizador = $dados[0]['id_utilizador'];
+            if($mensagem_emviada){
+                $id_utilizador = $dados[0]['id_utilizador'];
 
             $parametros = [
                 ':id_utilizador' => $id_utilizador,
@@ -57,11 +60,13 @@
                 'UPDATE utilizadores 
                  SET palavra_passe = :palavra_passe 
                  WHERE id_utilizador = :id_utilizador',$parametros);
+        }else{
+            echo 'Aconteceu um erro!';
         }
-        
-        
 
-    }
+    }             
+
+}
 
 
 

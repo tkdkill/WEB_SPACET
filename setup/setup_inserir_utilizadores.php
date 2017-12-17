@@ -15,7 +15,7 @@
         ':utilizador'       => 'admin',
         ':palavra_passe'    => md5('admin'),
         ':nome'             => 'Administrador',
-        ':email'            => 'admin@teste.com',
+        ':email'            => 'spacetprojectap@gmail.com',
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
     ];
