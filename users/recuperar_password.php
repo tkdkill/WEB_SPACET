@@ -69,6 +69,9 @@
                 'UPDATE utilizadores 
                  SET palavra_passe = :palavra_passe 
                  WHERE id_utilizador = :id_utilizador',$parametros);
+
+                 //cria LOG
+                 funcoes::CriarLOG('O utilizador ' . $dados[0]['nome'] . ' solicitou a recuperação da  password', $dados[0]['nome']);
         }else{
             //aconteceu um erro
             $erro = true;
@@ -86,7 +89,7 @@
     */
 ?>
 
-<?php if($mensagem_emviada == true) : ?>
+<?php if($mensagem_emviada == false) : ?>
 
     <!-- Apresentação de erro -->
     <?php if($erro): ?>

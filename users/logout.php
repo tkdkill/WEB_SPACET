@@ -9,6 +9,9 @@
     $nome = $_SESSION['nome'];
     //executa o logout (destruição) da sessão
     funcoes::DestroiSessao();
+
+    //Cria Log
+    funcoes::CriarLOG('Utilizador ' . $nome . ' fez logout', $nome);
 ?>
 
 <div class="container-fluid">

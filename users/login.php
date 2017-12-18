@@ -36,6 +36,9 @@
             $erro = false;
             //inicia a sessão
             funcoes::IniciarSessao($dados);
+
+            //Criar LOG
+            funcoes::CriarLOG('Utilizador ' . $_SESSION['nome'] . ' fez login', $_SESSION['nome']);
         }
     }
 

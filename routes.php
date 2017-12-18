@@ -20,7 +20,7 @@ if(!funcoes::verificarLogin()){
     $routes_especiais = [
         'recuperar_password',
         'setup',
-        'setup_criar-bd',
+        'setup_criar_bd',
         'setup_inserir_utilizadores'
     ];
     //bypass do sistema normal
