@@ -28,7 +28,7 @@
                     )
                 );
             $mail->isHTML();
-            $mail->SMTPDebug = 0;
+            $mail->SMTPDebug = $configs['MAIL_DEBUG'];
             $mail->Host = $configs['MAIL_HOST'];
             $mail->Port = $configs['MAIL_PORT'];
             $mail->SMTPAuth = true;

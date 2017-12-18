@@ -14,6 +14,7 @@
     'BD_PASSWORD'       => '',
 
     //variáveis do email
+    'MAIL_DEBUG'        => 0,
     'MAIL_HOST'         => 'smtp.gmail.com',
     'MAIL_PORT'         => '587',
     'MAIL_USERNAME'     => 'spacetprojectap@gmail.com',
