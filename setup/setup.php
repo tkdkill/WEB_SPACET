@@ -15,7 +15,7 @@ if(!isset($_SESSION['a'])){
 
     //route do setup
     switch ($a) {
-        case 'setup-criar-bd':
+        case 'setup_criar_bd':
             //executa os procidimentos para criação da base de dados
             include('setup/setup_criar_bd.php');
             break;
@@ -34,8 +34,12 @@ if(!isset($_SESSION['a'])){
     <!-- Título -->
     <h2 class="text-center">SETUP</h2>
     <div class="text-center">  
-        <p><a href="?a=setup-criar-bd" class="btn btn-secondary btn-size-250">Criar a Base de Dados</a></p>
-        <p><a href="?a=setup_inserir_utilizadores" class="btn btn-secondary btn-size-250">Iserir Utilizadores</a></p>
+       
+        <!-- criar ou zerar a base de dados -->
+        <p><a href="?a=setup_criar_bd" class="btn btn-secondary btn-size-250">Criar a Base de Dados</a></p>
+        <!-- inserir usuários/utilizadores -->
+        <p><a href="?a=setup_inserir_utilizadores" class="btn btn-secondary btn-size-250">Inserir utilizadores</a></p>
+
         <hr>
         <p><a href="?a=inicio" class="btn btn-secondary btn-size-150">Voltar</a></p>
 

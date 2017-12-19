@@ -10,10 +10,9 @@ if(!isset($_SESSION['a'])){
 ?>
 <div class="conteiner-fluid pad-20">
     
-    <!-- butão para aceder ao setupe -->
+    <!-- botão para aceder ao setupe -->
     <div class="text-center">  
         <a href="?a=setup" class="btn btn-secondary btn-size-150">Setup</a>
-
     </div>
     
 

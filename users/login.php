@@ -87,3 +87,8 @@
 
 <?php endif; ?>
 
+<!-- botão para aceder ao setupe -->
+    <div class="text-center">  
+        <a href="?a=setup" class="btn btn-secondary btn-size-150">Setup</a>
+    </div>
+

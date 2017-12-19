@@ -49,6 +49,12 @@ switch ($a) {
         include_once('users/recuperar_password.php'); 
         break;
 
+    //===============================
+    // perfil
+    case 'perfil':
+        include_once('users/perfil/perfil_menu.php');
+        break;
+        
     //apresentar a página inicial
     case 'inicio':
         include_once('inicio.php');
@@ -65,7 +71,7 @@ switch ($a) {
     //===============================
     // SETUP
     //setup - criar a base de dados 
-    case 'setup-criar-bd':
+    case 'setup_criar_bd':
         include_once('setup/setup.php');
         break;
     //setup -inserir utilizadores 
