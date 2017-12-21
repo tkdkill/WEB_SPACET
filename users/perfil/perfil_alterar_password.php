@@ -34,7 +34,7 @@
             'SELECT id_utilizador, palavra_passe FROM utilizadores
              WHERE id_utilizador = :id_utilizador
              AND palavra_passe = :palavra_passe',$parametros);
-             if(count($dados) != 0){
+             if(count($dados) == 0){
                  //password atual errada
                  $erro = true;
                  $mensagem = 'A password atual não coincide.';
@@ -62,7 +62,9 @@
                  WHERE id_utilizador = :id_utilizador',$parametros);
 
             $sucesso = true;
-            $mensagem = 'Password atualizada com sucesso.';    
+            $mensagem = 'Password atualizada com sucesso.';
+            //Cria o LOG
+            funcoes::CriarLOG('Utilizador ' . $_SESSION['nome'] . ' alterou a sua password', $_SESSION['nome']);    
         }
 
         /*
@@ -72,9 +74,16 @@
         NOTA: cuidado com o MD5!!!!!
         */
     }
+// ============================================================================================================
 ?>
 <?php if($erro) : ?>
     <div class="alert alert-danger text-center">
+        <?php echo $mensagem ?>
+    </div>
+<?php endif;?>
+
+<?php if($sucesso) : ?>
+    <div class="alert alert-success text-center">
         <?php echo $mensagem ?>
     </div>
 <?php endif;?>
@@ -120,7 +129,7 @@
                 </div>
 
                 <div class="text-center">
-                    <a href="?a=perfil" class="btn btn-primary btn-size-150">Calcelar</a>
+                    <a href="?a=perfil" class="btn btn-primary btn-size-150">Voltar</a>
                     <button role="submit" class="btn btn-primary btn-size-150">Alterar</button>                   
                 </div>
                 
