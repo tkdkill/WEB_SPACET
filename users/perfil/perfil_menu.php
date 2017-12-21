@@ -23,10 +23,10 @@
             <h4 class="text-center">PERFIL DE ÚTILIZADOR</h4>
 
             <!-- dados do utilizador -->
-            <h5><?php echo $dados[0]['nome'] ?></h5>
-            <p><?php echo $dados[0]['email']?></p>
-
-            <a href="?a=perfil_alterar_password">Alterar password</a>          
+            <h5><i class="fa fa-user"></i> <?php echo $dados[0]['nome'] ?></h5>
+            <p><i class="fa fa-envelope" aria-hidden="true"></i> <?php echo $dados[0]['email']?></p>
+          
+             <a href="?a=perfil_alterar_password"><i class="fa fa-lock" aria-hidden="true"></i> Alterar password</a>         
 
         </div>
     </div>
