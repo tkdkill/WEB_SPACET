@@ -30,4 +30,8 @@
 
         </div>
     </div>
+    <!-- Voltar -->
+    <div class="text-center">
+        <a href="?a=inicio" class="btn btn-primary btn-size-150 m-3">Voltar</a>                  
+    </div>
 </div>

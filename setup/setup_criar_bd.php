@@ -32,6 +32,7 @@ if(!isset($_SESSION['a'])){
         'palavra_passe              NVARCHAR(200), '.
         'nome                       NVARCHAR(50), '.
         'email                      NVARCHAR(50), '.
+        'permissoes                 NVARCHAR(100), '.
         'criado_em                  DATETIME, '.
         'atualizado_em              DATETIME)'
     );
