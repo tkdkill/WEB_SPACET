@@ -1,11 +1,22 @@
 <?php
-     // ========================================
+    // ========================================
     // perfil - menu inicial
+    // permissão com índice = 0
     // ========================================
     // verificar a sessão
     if(!isset($_SESSION['a'])){
         exit();
     }
+
+    $erro = false;
+    $mensagem = '';
+
+    //verifica se tem permissão para aceder ao sistema
+    if(!funcoes::Permissoes(0)){
+        $erro = true;
+        $mensagem = 'Não tem permissões!';
+    }
+
 
     // vai buscar totas as informações do utilizador
     $gestor = new cl_gestorBD();
@@ -16,6 +27,14 @@
         'SELECT * FROM utilizadores 
          WHERE id_utilizador = :id_utilizador',$parametros);
 ?>
+
+<?php if($erro) : ?>
+        <h3><?php echo $mensagem ?></h3>
+         <!-- Voltar -->
+        <div class="text-center">
+            <a href="?a=inicio" class="btn btn-primary btn-size-150 m-3">Voltar</a>                  
+        </div>
+<?php else : ?>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -35,3 +54,5 @@
         <a href="?a=inicio" class="btn btn-primary btn-size-150 m-3">Voltar</a>                  
     </div>
 </div>
+
+<?php endif; ?>

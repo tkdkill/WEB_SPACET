@@ -25,7 +25,8 @@
         public static function IniciarSessao($dados){
             //iniciar sessão
             $_SESSION['id_utilizador'] = $dados[0]['id_utilizador'];
-             $_SESSION['nome'] = $dados[0]['nome'];
+            $_SESSION['nome'] = $dados[0]['nome'];
+            $_SESSION['permissoes'] = $dados[0]['permissoes'];
             
 
         }
@@ -35,6 +36,7 @@
             //destroi as variáveis de sessão
             unset($_SESSION['id_utilizador']);
             unset($_SESSION['nome']);
+            unset($_SESSION['permissoes']);
         }
 
         //=================================================
@@ -63,6 +65,17 @@
             $gestor->EXE_NON_QUERY(
                 'INSERT INTO logs(data_hora, utilizador, mensagem)
                  VALUES(:data_hora, :utilizador, :mensagem)',$parametros);
+        }
+
+        //=================================================
+        public static function Permissoes($index){
+            // verifica se o utilizador com sessão ativa, tem permissões para a funcionalidade
+            if(substr($_SESSION['permissoes'], $index, 1) == 1){
+                return true;
+            }else{
+                return false;
+            }
+
         }
     }
     
