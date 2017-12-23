@@ -20,11 +20,23 @@ $classe = 'barra_utilizador_inativo';
 ?>
 
     <div class="barra_utilizadores">
-        <span class="<?php echo $classe ?>"><i class="fa fa-user"></i> <?php echo $nome_utilizador ?></span>
 
-        <?php if(funcoes::VerificarLogin()): ?>
-            &nbsp|&nbsp<a href="?a=perfil"><i class="fa fa-user-o"></i> Perfil</a>
-            &nbsp|&nbsp<a href="?a=logout"><i class="fa fa-sign-out"></i> Logout</a>
+        <?php if(funcoes::VerificarLogin()): ?>    
+            
+            <!-- dropdown -->
+            <div class="dropdown">
+                <i class="fa fa-user"></i> <?php echo $nome_utilizador?>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="?a=perfil"><i class="fa fa-user-o"></i> Acesso ao Perfil</a>
+                    <a class="dropdown-item" href="?a=perfil_alterar_password"><i class="fa fa-lock" aria-hidden="true"></i> Alterar password</a>
+                    <a class="dropdown-item" href="?a=logout"><i class="fa fa-sign-out"></i> Logout</a>
+                </div>
+            </div>
+        <?php else : ?>
+            <span class="<?php echo $classe ?>"><i class="fa fa-user"></i> <?php echo $nome_utilizador ?></span>    
         <?php endif; ?>
-
     </div>
+

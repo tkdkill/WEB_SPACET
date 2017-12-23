@@ -4,17 +4,17 @@
   padding: 20px;
   text-align: right;
   background-color: #202020;
-  color: #8fa9e2; }
+  color: #e8eaf0; }
   .barra_utilizadores a {
     text-decoration: none;
-    color: #d4d4d4; }
+    color: #0e0d0d; }
   .barra_utilizadores a:hover {
-    color: white; }
+    color: #161616; }
 
 .barra_utilizador_inativo {
   color: #616161; }
 
 .barra_utilizador_ativo {
-  color: white; }
+  color: black; }
 
 /*# sourceMappingURL=utilizadores.css.map */
