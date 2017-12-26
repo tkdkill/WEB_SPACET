@@ -12,7 +12,7 @@
     $mensagem = '';
 
     //verifica se tem permissão para aceder ao sistema
-    if(!funcoes::Permissoes(0)){
+    if(!funcoes::Permissoes(1)){
         $erro = true;
         $mensagem = 'Não tem permissões!';
     }

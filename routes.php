@@ -57,7 +57,11 @@ switch ($a) {
     //alterar password
     case 'perfil_alterar_password':
         include_once('users/perfil/perfil_alterar_password.php');
-        break;    
+        break; 
+    // alterar email
+    case 'perfil_alterar_email':
+        include_once('users/perfil/perfil_alterar_email.php');
+        break;            
         
     //apresentar a página inicial
     case 'inicio':

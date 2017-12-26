@@ -25,14 +25,16 @@ $classe = 'barra_utilizador_inativo';
             
             <!-- dropdown -->
             <div class="dropdown">
-                <i class="fa fa-user"></i> <?php echo $nome_utilizador?>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-3"><i class="fa fa-user mr-3"></i> <?php echo $nome_utilizador?></span>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-cog" aria-hidden="true"></i>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="?a=perfil"><i class="fa fa-user-o"></i> Acesso ao Perfil</a>
-                    <a class="dropdown-item" href="?a=perfil_alterar_password"><i class="fa fa-lock" aria-hidden="true"></i> Alterar password</a>
-                    <a class="dropdown-item" href="?a=logout"><i class="fa fa-sign-out"></i> Logout</a>
+                <div class="dropdown-menu" aria-labelledby="d1">
+                    <a class="dropdown-item" href="?a=perfil"><i class="fa fa-user-o mr-2"></i>Acesso ao Perfil</a>
+                    <a class="dropdown-item" href="?a=perfil_alterar_password"><i class="fa fa-lock mr-2" aria-hidden="true"></i>Alterar Password</a>
+                    <a class="dropdown-item" href="?a=perfil_alterar_email"><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Alterar Email</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="?a=logout"><i class="fa fa-sign-out mr-2"></i>Logout</a>
                 </div>
             </div>
         <?php else : ?>
