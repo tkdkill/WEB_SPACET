@@ -34,6 +34,13 @@ $classe = 'barra_utilizador_inativo';
                     <a class="dropdown-item" href="?a=perfil_alterar_password"><i class="fa fa-lock mr-2" aria-hidden="true"></i>Alterar Password</a>
                     <a class="dropdown-item" href="?a=perfil_alterar_email"><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Alterar Email</a>
                     <div class="dropdown-divider"></div>
+
+                    <!-- Opções disponiveis apenas para admin -->
+                    <?php if(funcoes::Permissoes(0)) : ?>
+                        <a class="dropdown-item" href="?a=utilizadores_gerir"><i class="fa fa-user-o mr-2"></i>Gerir útilizadores</a>
+                        <div class="dropdown-divider"></div>
+                    <?php endif;?>
+
                     <a class="dropdown-item" href="?a=logout"><i class="fa fa-sign-out mr-2"></i>Logout</a>
                 </div>
             </div>
