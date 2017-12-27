@@ -67,8 +67,12 @@ switch ($a) {
     //opções do administrador    
     case 'utilizadores_gerir':
         include_once('admin/utilizadores_gerir.php');
-        break;                
-        
+        break;
+    case 'utilizadores_adicionar':
+        include_once('admin/utilizadores_adicionar.php');
+        break; 
+    
+    //===============================    
     //apresentar a página inicial
     case 'inicio':
         include_once('inicio.php');

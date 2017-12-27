@@ -1,6 +1,6 @@
 <?php
     // ==================================
-    // gestão de útilizadores
+    // adicionar útilizadores
     // ==================================
 
     // verificar a sessão
@@ -17,20 +17,14 @@
 
 ?>
 
-<?php if($erro_permissao) :?>
-
-    <?php include('inc/sem_permissao.php') ?>
-
-<?php else : ?>
-    <div class="container">
+<div class="container">
     <div class="row justify-content-center">
-        <div class="col card m-3 p-3">
+        <div class="col card m-3 p-3 text-center">
             <div class="text-center">
-                <h4 class="text-center">GESTÃO DE UTILIZADORES</h4>          
+                <h1>Criar utilizador</i></h1>
+                
                 <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>
-                <a href="?a=utilizadores_adicionar" class="btn btn-primary btn-size-150">Novo utilizador...</a>
-            </div>
+            </div>                  
         </div>
     </div>
 </div>
-<?php endif; ?>
