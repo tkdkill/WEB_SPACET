@@ -96,13 +96,28 @@
                                 data-target="#caixa_permissoes" 
                                 aria-expanded="false" 
                                 aria-controls="collapseExample">Definir permissões</button>
-                        <div class="collapse" id="caixa_permissoes">
-                            <div class="card p-3">
-                                <!-- Permissões -->
-                                <p>Texto dentro da caixa collapse</p>
-                            </div>
-                        </div>                  
-                    </div>               
+                    </div>             
+                    <div class="collapse" id="caixa_permissoes">
+                        <div class="card p-3">
+                            <!-- Permissões -->
+                            
+                            <?php
+                                $permissoes = include_once('inc/permissoes.php');
+                                //var_dump($permissoes);
+                               foreach ($permissoes as $permissao) { ?>
+                                <div class="checkbox">
+                                    <label for="check_permissao">
+                                        <input type="checkbox" name="check_permissao" id="check_permissao" value="titulo da permissao">
+                                        <span><?php echo  $permissao['permissao'] ?></span> 
+                                    </label><br>   
+                                    <span><?php echo  $permissao['sumario'] ?></span>
+                                </div>
+                                   
+                            <?php } ?>
+
+                        </div>
+                    </div>                  
+                                  
                 </form>                 
         </div>
     </div>
