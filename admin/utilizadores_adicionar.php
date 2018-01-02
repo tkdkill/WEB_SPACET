@@ -89,17 +89,17 @@
                         <button class="btn btn-primary btn-size-150">Criar útilizador</button>
                     </div>
                     <hr>
-                    <div class="text-center">
+                    <div class="text-center m-3">
                         <button type="button" 
                                 class="btn btn-primary btn-size-150" 
                                 data-toggle="collapse" 
                                 data-target="#caixa_permissoes" 
                                 aria-expanded="false" 
                                 aria-controls="collapseExample">Definir permissões</button>
-                    </div>             
+                    </div>
+                    <!-- Caixa das Permissões -->             
                     <div class="collapse" id="caixa_permissoes">
                         <div class="card p-3">
-                            <!-- Permissões -->
                             
                             <?php
                                 $permissoes = include_once('inc/permissoes.php');
@@ -107,10 +107,10 @@
                                foreach ($permissoes as $permissao) { ?>
                                 <div class="checkbox">
                                     <label for="check_permissao">
-                                        <input type="checkbox" name="check_permissao" id="check_permissao" value="titulo da permissao">
-                                        <span><?php echo  $permissao['permissao'] ?></span> 
+                                        <input type="checkbox" name="check_permissao[]" id="check_permissao" value="titulo da permissao">
+                                        <span class="permissoes-titulo"><?php echo  $permissao['permissao'] ?></span> 
                                     </label><br>   
-                                    <span><?php echo  $permissao['sumario'] ?></span>
+                                    <span class="permissoes-sumario"><?php echo  $permissao['sumario'] ?></span>
                                 </div>
                                    
                             <?php } ?>

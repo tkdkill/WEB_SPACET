@@ -172,4 +172,12 @@
 .barra_utilizador_ativo {
   color: white; }
 
+.permissoes-titulo {
+  font-weight: bold; }
+
+.permissoes-sumario {
+  font-size: .8em;
+  font-style: italic;
+  opacity: .7; }
+
 /*# sourceMappingURL=main.css.map */
