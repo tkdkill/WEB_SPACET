@@ -16,6 +16,22 @@
     }
 
     //=========================================================================================
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //ai buscar os valores do formulário
+        $utilizador     = $_POST['text_utilizador'];
+        $password       = $_POST['text_password'];
+        $nome_completo  = $_POST['text_nome'];
+        $email          = $_POST['text_email'];
+
+        //permissões
+        $permissoes = $_POST['check_permissao'];
+
+        echo $utilizador . ' ' . $password . ' ' . $nome_completo . ' ' . $email;
+        var_dump($permissoes);
+
+    }
+
+    //=========================================================================================
 
 ?>
 
@@ -26,7 +42,7 @@
                 <hr>
 
                 <!-- Formulário para adicionar novo utilizador -->
-                <form action="?a=utilizador_adicionar" method="post">
+                <form action="?a=utilizadores_adicionar" method="post">
                     <!-- Útilizador -->
                     <div class="form-group">
                         <label for="text_utilizador">Utilizador:</label>
@@ -99,25 +115,25 @@
                     </div>
                     <!-- Caixa das Permissões -->             
                     <div class="collapse" id="caixa_permissoes">
-                        <div class="card p-3">
+                        <div class="card p-3 caixa_permissoes">
                             
                             <?php
                                 $permissoes = include_once('inc/permissoes.php');
+                                $id = 0;
                                 //var_dump($permissoes);
                                foreach ($permissoes as $permissao) { ?>
                                 <div class="checkbox">
                                     <label for="check_permissao">
-                                        <input type="checkbox" name="check_permissao[]" id="check_permissao" value="titulo da permissao">
+                                        <input type="checkbox" name="check_permissao[]" id="check_permissao" value="<?php echo $id ?>">
                                         <span class="permissoes-titulo"><?php echo  $permissao['permissao'] ?></span> 
                                     </label><br>   
-                                    <span class="permissoes-sumario"><?php echo  $permissao['sumario'] ?></span>
+                                    <p class="permissoes-sumario"><?php echo  $permissao['sumario'] ?></p>
                                 </div>
                                    
-                            <?php } ?>
+                            <?php $id++; } ?>
 
                         </div>
-                    </div>                  
-                                  
+                    </div>                                                   
                 </form>                 
         </div>
     </div>

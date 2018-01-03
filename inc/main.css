@@ -180,4 +180,7 @@
   font-style: italic;
   opacity: .7; }
 
+.caixa_permissoes label {
+  margin: 0px !important; }
+
 /*# sourceMappingURL=main.css.map */
