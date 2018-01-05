@@ -24,10 +24,28 @@
         $email          = $_POST['text_email'];
 
         //permissões
-        $permissoes = $_POST['check_permissao'];
+        $total_permissoes = (count(include('inc/permissoes.php')));
+        $permissoes_tamanho = [];
+        if(isset($_POST['check_permissao'])){
+            $permissoes = $_POST['check_permissao'];
+        }
+        $permissoes_finais = '';
+        for($i = 0; $i < 100; $i++){
+            if($i < $total_permissoes){
+                if(in_array($i, $permissoes_tamanho)){
+                    $permissoes_finais.= '1';
+                } else{
+                    $permissoes_finais.= '0';
+                }
+            }
+            $permissoes_finais.= '1';
+        }
 
-        echo $utilizador . ' ' . $password . ' ' . $nome_completo . ' ' . $email;
-        var_dump($permissoes);
+        echo $permissoes_finais;
+        
+
+        /* echo $utilizador . ' ' . $password . ' ' . $nome_completo . ' ' . $email;
+        var_dump($permissoes); */
 
     }
 
@@ -132,6 +150,10 @@
                                    
                             <?php $id++; } ?>
 
+                            <!-- Todas | nenhumas -->
+                            <div>
+                                <a href="#" onclick="checks(true); return false">Todas</a> | <a href="#" onclick="checks(false); return false">Nenhumas</a>
+                            </div>
                         </div>
                     </div>                                                   
                 </form>                 

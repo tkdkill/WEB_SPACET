@@ -17,3 +17,20 @@ function gerarPassword(numLetras) {
     text_password.value = codigo;
 
 }
+
+//======================================================================
+// funcções individuais
+function checksTodas() {
+    $('input:checkbox').prop('checked', true);
+}
+
+//======================================================================
+function checksNenhumas() {
+    $('input:checkbox').prop('checked', false);
+}
+
+//======================================================================
+// numa unica função
+function checks(estado) {
+    $('input:checkbox').prop('checked', estado);
+}
