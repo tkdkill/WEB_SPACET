@@ -12,8 +12,13 @@
     $erro_permissao = false;
     if(!funcoes::Permissoes(0)){
         $erro_permissao = true;
-
     }
+
+    $gestor = new cl_gestorBD();
+    $erro = false;
+    $sucesso = false;
+    $mensagem = '';
+
 
     //=========================================================================================
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -25,27 +30,56 @@
 
         //permissões
         $total_permissoes = (count(include('inc/permissoes.php')));
-        $permissoes_tamanho = [];
+        $permissoes = [];
         if(isset($_POST['check_permissao'])){
             $permissoes = $_POST['check_permissao'];
         }
         $permissoes_finais = '';
         for($i = 0; $i < 100; $i++){
             if($i < $total_permissoes){
-                if(in_array($i, $permissoes_tamanho)){
+                if(in_array($i, $permissoes)){
                     $permissoes_finais.= '1';
                 } else{
                     $permissoes_finais.= '0';
                 }
+            }else{
+                $permissoes_finais.= '1';
             }
-            $permissoes_finais.= '1';
         }
-
-        echo $permissoes_finais;
-        
 
         /* echo $utilizador . ' ' . $password . ' ' . $nome_completo . ' ' . $email;
         var_dump($permissoes); */
+
+        //-----------------------------------------------------------------------------
+        // verifica os dados na base de dados
+
+        // verifica se existe utilizador com o nome igual
+         $parametros = [
+             ':utilizador' => $utilizador
+         ];
+         $dtemp = $gestor->EXE_QUERY('SELECT utilizador 
+                                      FROM utilizadores 
+                                      WHERE utilizador = :utilizador', $parametros);
+        if(count($dtemp) != 0){
+            $erro = true;
+            $mensagem = 'Já existe um utilizador com o mesmo nome.';
+        }
+        //-----------------------------------------------------------------------------
+        // verifica se existe um utilizador com o mesmo email.
+        if(!$erro){
+            $parametros = [
+                ':email' => $email
+            ];
+            $dtemp = $gestor->EXE_QUERY('SELECT email 
+                                         FROM utilizadores 
+                                         WHERE email = :email',$parametros);
+        }
+        if(count($dtemp) != 0){
+            $erro = true;
+            $mensagem = 'Já existe um utilizador com o mesmo email.';
+        }
+
+        //guardar na base de dados
 
     }
 
@@ -136,7 +170,7 @@
                         <div class="card p-3 caixa_permissoes">
                             
                             <?php
-                                $permissoes = include_once('inc/permissoes.php');
+                                $permissoes = include('inc/permissoes.php');
                                 $id = 0;
                                 //var_dump($permissoes);
                                foreach ($permissoes as $permissao) { ?>
