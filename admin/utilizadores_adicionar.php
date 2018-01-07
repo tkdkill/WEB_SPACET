@@ -79,7 +79,30 @@
             $mensagem = 'Já existe um utilizador com o mesmo email.';
         }
 
+        //echo $mensagem;
+        //-----------------------------------------------------------------------------
         //guardar na base de dados
+        if(!$erro){
+            $parametros = [
+                ':utilizador'       => $utilizador,
+                ':palavra_passe'    => md5($password),
+                ':nome'             => $nome_completo,
+                ':email'            => $email,
+                ':permissoes'       => $permissoes_finais, 
+                ':criado_em'        => DATAS::DataHoraAtualBD(),
+                ':atualizade_em'    => DATAS::DataHoraAtualBD()
+            ];
+
+            $gestor->EXE_NON_QUERY('INSERT INTO 
+                                    utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em) 
+                                    VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizade_em)', $parametros);
+            echo 'OK';
+
+        }
+
+        //testes
+        //2018-01-10 23:29:15
+        //echo DATAS::DataHoraAtualBD();
 
     }
 

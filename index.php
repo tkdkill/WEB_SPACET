@@ -12,6 +12,7 @@
     //inclui as funções necessárias do sistema
 
     include_once('inc/funcoes.php');
+    include_once('inc/cl_datas.php');
     include_once('inc/emails.php');
     include_once('inc/gestorBD.php');
 
