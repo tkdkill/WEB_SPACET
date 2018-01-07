@@ -78,8 +78,6 @@
             $erro = true;
             $mensagem = 'Já existe um utilizador com o mesmo email.';
         }
-
-        //echo $mensagem;
         //-----------------------------------------------------------------------------
         //guardar na base de dados
         if(!$erro){
@@ -96,7 +94,21 @@
             $gestor->EXE_NON_QUERY('INSERT INTO 
                                     utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em) 
                                     VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizade_em)', $parametros);
-            echo 'OK';
+
+            //enviar o email para o novo utilizador
+            $mensagem = [
+                $email,
+                'SPACE - Criação de nova conta de utilizador',
+                "<p>Foi criada a nova conta de utilizador com os seguintes dados:</p>
+                <p>Utilizador: $utilizador</p>
+                <p>Password: $password</p>"
+            ];
+            $mail = new emails();
+            $mail->EnviarEmail($mensagem);
+
+
+            //apresentar um alerta de sucesso
+            echo '<div class="alert alert-success text-center">Novo utilizador adicionado com sucesso.</div>';
 
         }
 
@@ -109,7 +121,12 @@
     //=========================================================================================
 
 ?>
-
+<!-- apresenta o erro no caso de exitir -->
+<?php
+    if($erro){
+        echo '<div class="alert alert-danger text-center">' . $mensagem . '</div>'; 
+    }
+?>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-8 card m-3 p-3">
