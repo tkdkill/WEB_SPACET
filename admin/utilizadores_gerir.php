@@ -31,13 +31,13 @@
                     <a href="?a=utilizadores_adicionar" class="btn btn-primary btn-size-150">Novo utilizador...</a>
                 </div>
                 <?php //Tabela dos utilizadores registados na base de dados ?>
-                <div class="row m-3 p-3">
+                <div class="table-responsive row m-3 p-3">
                     <table class="table table-hover">
                         <thead class="thead-dark">
-                            <th>Utilizador</th>
-                            <th>Nome completo</th>
-                            <th>Email</th>
-                            <th>Ação</th>
+                            <th scope="col">Utilizador</th>
+                            <th scope="col">Nome completo</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Ação</th>
                         </thead>
                         <?php
                             $gestor = new cl_gestorBD();
@@ -50,8 +50,21 @@
                                 <td><?php echo $utilizador['utilizador']; ?></td>
                                 <td><?php echo $utilizador['nome']; ?></td>
                                 <td><?php echo $utilizador['email']; ?></td>
-                                <td>Ícon</td>
-                            </tr>
+                                <td>
+                                    <!-- dropdown -->
+                                    <?php $id = $utilizador['id_utilizador']; ?>
+                                    <div class="dropdown">
+                                        <i class="fa fa-cog" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <!-- <i class="fa fa-cog" aria-hidden="true"></i> -->
+                                        </i>
+                                        <div class="dropdown-menu" aria-labelledby="d1">
+                                            <a class="dropdown-item disabled" href="?a=editar_utilizador&id=<?php echo $id; ?>"><i class="fa fa-edit mr-2"></i>Editar utilizador</a>
+                                            <a class="dropdown-item disabled" href="?a=editar_permissoes&id=<?php echo $id; ?>"><i class="fa fa-list mr-2" aria-hidden="true"></i>Editar permissões</a>
+                                            <a class="dropdown-item disabled" href="?a=eliminar_utilizador&id=<?php echo $id; ?>"><i class="fa fa-trash mr-2" aria-hidden="true"></i>Eliminar utilizador</a>
+                                        </div>
+                                    </div>                             
+                                </td>
+                            </tr>                        
                         <?php endforeach;?>
                     </table>   
                 </div>
