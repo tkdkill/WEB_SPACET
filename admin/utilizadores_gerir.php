@@ -51,55 +51,35 @@
                                 <td><?php echo $utilizador['nome']; ?></td>
                                 <td><?php echo $utilizador['email']; ?></td>
                                 <td>
+
+
+
                                     <!-- dropdown -->
                                     <?php 
                                         $id = $utilizador['id_utilizador'];
-                                        $op_editar = true;
-                                        $op_permissoes = true;
-                                        $op_eleminar = true;
 
-                                        //analiza o utilizador atual
-                                        //no caso de ser o admin original
-                                        if($id == 1){
-                                            $op_editar = false;
-                                            $op_permissoes = false;
-                                            $op_eleminar = false;
-                                        }
-
-                                        //no caso de ser o próprio admnistrador
-                                        if($id != 1 && $id == $_SESSION['id_utilizador']){
-                                            $op_editar = false;
-                                            $op_permissoes = false;
-                                            $op_eleminar = false;
+                                        //definir se o dropdown vai aparecer
+                                        $drop = true;
+                                        if($id == 1 || $id == $_SESSION['id_utilizador']){
+                                            $drop = false;
                                         }
                                     ?>
+                                    <?php if($drop) : ?>
                                     <div class="dropdown">
                                         <i class="fa fa-cog" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                             <!-- <i class="fa fa-cog" aria-hidden="true"></i> -->
                                         </i>
                                         <div class="dropdown-menu" aria-labelledby="d1">
-                                        <?php
-                                            //opção editar 
-                                            if($op_editar){
-                                                echo '<a class="dropdown-item disabled" href="?a=editar_utilizador&id='. $id . '"><i class="fa fa-edit mr-2"></i>Editar utilizador</a>';
-                                            }
-                                            //opção permissões
-                                            if($op_permissoes){
-                                            //opção eliminar
-                                                echo '<a class="dropdown-item" href="?a=editar_permissoes&id=<' . $id .'"><i class="fa fa-list mr-2" aria-hidden="true"></i>Editar permissões</a>';
-                                            }
-                                            if($op_eleminar){
-                                                echo '<a class="dropdown-item" href="?a=eliminar_utilizador&id=<'. $id .'"><i class="fa fa-trash mr-2" aria-hidden="true"></i>Eliminar utilizador</a>';
-                                            }
-
-                                            //nocaso de não haver opções
-                                            if(!$op_editar && !$op_eleminar && !$op_eleminar){
-                                                echo '<p class="p-2">Sem opções</p>';
-                                            }
-                                        ?>                                 
-                                            
+                                            <!-- opção --> 
+                                            <a class="dropdown-item disabled" href="?a=editar_utilizador&id=<?php echo $id ?>"><i class="fa fa-edit mr-2"></i>Editar utilizador</a>
+                                            <a class="dropdown-item" href="?a=editar_permissoes&id=<?php echo $id ?>"><i class="fa fa-list mr-2" aria-hidden="true"></i>Editar permissões</a>
+                                            <a class="dropdown-item" href="?a=eliminar_utilizador&id=<?php echo $id ?>"><i class="fa fa-trash mr-2" aria-hidden="true"></i>Eliminar utilizador</a>                                
                                         </div>
-                                    </div>                             
+                                    </div>
+
+                                    <?php else : ?>
+                                        <i class="fa fa-cog text-muted">
+                                    <?php endif; ?>                             
                                 </td>
                             </tr>                        
                         <?php endforeach;?>
