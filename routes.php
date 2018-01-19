@@ -68,9 +68,22 @@ switch ($a) {
     case 'utilizadores_gerir':
         include_once('admin/utilizadores_gerir.php');
         break;
+    //formulário para adicionar novo utilizador    
     case 'utilizadores_adicionar':
         include_once('admin/utilizadores_adicionar.php');
-        break; 
+        break;
+    //Editar utilizador
+    case 'editar_utilizador':
+        include_once('admin/utilizadores_editar.php');
+        break;
+    //Editar permissões
+    case 'editar_permissoes':
+        include_once('admin/utilizadores_permissoes_editar.php');
+        break;
+    //Eliminar utilizador
+    case 'eliminar_utilizador':
+        include_once('admin/utilizadores_eliminar.php');
+        break;     
     
     //===============================    
     //apresentar a página inicial

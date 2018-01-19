@@ -34,10 +34,11 @@
                 <div class="table-responsive row m-3 p-3">
                     <table class="table table-hover">
                         <thead class="thead-dark">
+                            <th scope="col"></th>
                             <th scope="col">Utilizador</th>
                             <th scope="col">Nome completo</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Ação</th>
+                            <th scope="col" class="text-center">Ação</th>
                         </thead>
                         <?php
                             $gestor = new cl_gestorBD();
@@ -47,12 +48,16 @@
                         ?>
                         <?php foreach ($dados_utilizadores as $utilizador) : ?>
                             <tr>
+                                <?php if(substr($utilizador['permissoes'], 0, 1) == 1) :  ?>    
+                                    <td><i class="fa fa-user"></i></td>
+                                <?php else : ?>
+                                    <td><i class="fa fa-user-o"></i></td>
+                                <?php endif; ?>
+
                                 <td><?php echo $utilizador['utilizador']; ?></td>
                                 <td><?php echo $utilizador['nome']; ?></td>
                                 <td><?php echo $utilizador['email']; ?></td>
                                 <td>
-
-
 
                                     <!-- dropdown -->
                                     <?php 
@@ -65,7 +70,7 @@
                                         }
                                     ?>
                                     <?php if($drop) : ?>
-                                    <div class="dropdown">
+                                    <div class="dropdown text-center">
                                         <i class="fa fa-cog" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                             <!-- <i class="fa fa-cog" aria-hidden="true"></i> -->
                                         </i>
@@ -78,7 +83,9 @@
                                     </div>
 
                                     <?php else : ?>
-                                        <i class="fa fa-cog text-muted">
+                                        <div class="text-center">
+                                            <i class="fa fa-cog text-muted"></i>
+                                        </div>
                                     <?php endif; ?>                             
                                 </td>
                             </tr>                        
