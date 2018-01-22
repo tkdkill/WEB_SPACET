@@ -91,7 +91,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col card m-3 p-3">
-            <h4 class="text-center">ALTERAR PASSWORD</h4>
+            <h4 class="text-center alert alert-secondary">ALTERAR PASSWORD</h4>
             <hr>
             <!-- formulário-->
             <form action="?a=perfil_alterar_password" method="post">

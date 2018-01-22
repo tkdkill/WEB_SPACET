@@ -130,7 +130,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-8 card m-3 p-3">
-                <h4 class="text-center">Adicionar novo utilizador</i></h4>
+                <h4 class="text-center alert alert-secondary">Adicionar novo utilizador</i></h4>
                 <hr>
 
                 <!-- Formulário para adicionar novo utilizador -->

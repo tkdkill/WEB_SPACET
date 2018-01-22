@@ -78,7 +78,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col card m-3 p-3">
-            <h4 class="text-center">ALTERAR EMAIL</h4>
+            <h4 class="text-center alert alert-secondary">ALTERAR EMAIL</h4>
             <hr>
                 <!-- Apresenta o email atual -->
                 <div class="text-center">Email atual: <strong><?php echo $_SESSION['email'] ?></strong></div>

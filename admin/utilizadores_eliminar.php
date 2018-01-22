@@ -46,20 +46,21 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col card m-3 p-3">
-                <h4 class="text-center">ELIMINAR UTILIZADORES</h4>
+                <h4 class="text-center alert alert-secondary" role="alert">ELIMINAR UTILIZADORES</h4>
                 <!-- Dados do utilizador -->
-                <div class="row justify-content-left">
-                    <div class="col-xs-6 offset-xs-6 card">
-                        <p>Deseja mesmo eliminar o utilizador!</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-8 offset-md-2 card m-3 p-3">
+                        <p class="alert alert-danger text-center" role="alert">Tem a certesa que pretende eliminar o utilizador?</p>
 
                         <?php foreach ($dados_utilizador as $utilizador) : ?>
-                        <p><i>Nome: </i><?php echo $utilizador['nome']; ?></p>
-                        <p><i>E-mail: </i><?php echo $utilizador['email']; ?></p>
+                        <p><i class="fa fa-user mr-2"> Nome: </i><strong><?php echo $utilizador['nome']; ?></strong></p>
+                        <p><i class="fa fa-envelope mr-2"> E-mail: </i><strong><?php echo $utilizador['email']; ?></strong></p>
                         <?php endforeach;?>
 
                     </div>
                 </div>    
                 <div class="text-center">
+                    <!-- Botões não e sim -->
                     <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Não</a>
                     <a href="?a=#" class="btn btn-primary btn-size-150">Sim</a>
                 </div>        

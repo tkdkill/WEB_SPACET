@@ -39,7 +39,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col card m-3 p-3">
-            <h4 class="text-center">PERFIL DE ÚTILIZADOR</h4>
+            <h4 class="text-center alert alert-secondary">PERFIL DE ÚTILIZADOR</h4>
 
             <!-- dados do utilizador -->
             <h5><i class="fa fa-user"></i> <?php echo $dados[0]['nome'] ?></h5>

@@ -26,7 +26,7 @@
         <div class="row justify-content-center">
             <div class="col card m-3 p-3">
                 <div class="text-center">
-                    <h4 class="text-center">GESTÃO DE UTILIZADORES</h4>          
+                    <h4 class="text-center alert alert-secondary">GESTÃO DE UTILIZADORES</h4>          
                     <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>
                     <a href="?a=utilizadores_adicionar" class="btn btn-primary btn-size-150">Novo utilizador...</a>
                 </div>
