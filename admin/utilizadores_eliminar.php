@@ -35,18 +35,54 @@
         $parametros = [':id_utilizador' => $id_utilizador];
         $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores WHERE id_utilizador = :id_utilizador', $parametros);
     }
+
+    //=======================================================================
+    // verifica se foi dada resposta afirmativa para eliminar
+    $sucesso = false;
+    if(isset($_GET['r'])){
+        if($_GET['r'] == 1){
+            
+            //remover o utilizador da base de dados
+            $parametros = [':id_utilizador' => $id_utilizador];
+            $gestor->EXE_NON_QUERY('DELETE FROM utilizadores WHERE id_utilizador = :id_utilizador', $parametros);
+
+            //Informa o sistema que a remoção do utilizador aconteceu com sucesso
+            $sucesso = true;
+        }
+    }
 ?>
 
+<!-- sem permissão -->
 <?php if($erro_permissao) :?>
-
     <?php include('inc/sem_permissao.php') ?>
-
 <?php else : ?>
-    
+
+<!-- remoção com sucesso -->
+<?php if($sucesso) : ?>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col card m-3 p-3">
-                <h4 class="text-center alert alert-secondary" role="alert">ELIMINAR UTILIZADORES</h4>
+                <h4 class="text-center alert alert-secondary" role="alert">REMOVER UTILIZADORES</h4>
+                <!-- Dados do utilizador -->
+                <div class="row justify-content-center">
+                    <div class="col-md-8 offset-md-2 card m-3 p-3">
+                        <p class="alert alert-success text-center" role="alert">Utilizador removido com sucesso.</p>
+                    </div>
+                </div>
+                    <div class="text-center">
+                        <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Voltar</a>
+                    </div>    
+                </div>
+            </div>
+        </dive>
+    </div>               
+<?php else : ?>
+
+    <!-- apesentação dos dados do utilizador a remover -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col card m-3 p-3">
+                <h4 class="text-center alert alert-secondary" role="alert">REMOVER UTILIZADORES</h4>
                 <!-- Dados do utilizador -->
                 <div class="row justify-content-center">
                     <div class="col-md-8 offset-md-2 card m-3 p-3">
@@ -62,11 +98,12 @@
                 <div class="text-center">
                     <!-- Botões não e sim -->
                     <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Não</a>
-                    <a href="?a=#" class="btn btn-primary btn-size-150">Sim</a>
+                    <a href="?a=eliminar_utilizador&id=<?php echo $id_utilizador; ?>&r=1" class="btn btn-primary btn-size-150">Sim</a>
                 </div>        
             </div>
         </div>
     </div>
         
+<?php endif; ?>
 <?php endif; ?>
 
