@@ -44,8 +44,53 @@
             $erro = true;
             $mensagem = 'Não foram encontrados dados do utilizador.';
         }
+    }
+    //=========================================================================================
+    // POST
+    //========================================================================================= 
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //vai buscar os valores do formulário
+        $nome_completo  = $_POST['text_nome'];
+        $email          = $_POST['text_email'];
 
-    } 
+        //verificações se existe outro utilizador com o mesmo email
+        $parametros = [
+            ':id_utilizador' => $id_utilizador,
+            ':email'         => $email
+        ];
+        $temp = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
+                                    WHERE id_utilizador <> :id_utilizador 
+                                    AND email = :email', $parametros);
+        if(count($temp) != 0){
+            $erro = true;
+            $mensagem = 'Já existe um utilizador com o mesmo email.';
+        }
+        //==================================================
+        //atualiza os dados na base de dados
+        if(!$erro){
+            $parametros = [
+            ':id_utilizador' => $id_utilizador,
+            ':nome'          => $nome_completo,
+            ':email'         => $email,
+            ':atualizado_em' => DATAS::DataHoraAtualBD()
+        ];
+            $temp = $gestor->EXE_NON_QUERY('UPDATE utilizadores SET nome = :nome, email = :email, atualizado_em = :atualizado_em   
+                                            WHERE id_utilizador = :id_utilizador', $parametros);
+
+            $sucesso = true;
+            $mensagem = 'Dados atualizados com sucesso.';
+
+            //mostra os dados do utilizador atualizados
+            $parametros = [
+                ':id_utilizador' => $id_utilizador];
+                $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
+                                                        WHERE id_utilizador = :id_utilizador', $parametros);
+
+        }
+        
+
+    }
+    //=========================================================================================     
 ?>
 
 <?php if($erro_permissao) :?>
@@ -54,16 +99,23 @@
     <!-- Erro de falta de dados -->
     <?php if ($erro) : ?>
         <div class="container">
-            <div class="row card mt-5 mb-5 justify-content-center text-center">
-                <p class="alert alert-danger"><?php echo $mensagem; ?></p>
-                <div class="test-center mb-3">
-                    <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Voltar</a>
+            <div class="row justify-content-center">
+                <div class="row card col-sm-8 m-3 p-3 justify-content-center text-center">
+                    <p class="alert alert-danger"><?php echo $mensagem; ?></p>
+                    <div class="test-center mb-2">
+                        <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Voltar</a>
+                    </div>
                 </div>
-            </div>           
+            </div>               
         </div>
     <?php  else : ?>
     <!-- Sucesso na alteração dos dados -->
+    <?php  if($sucesso) : ?>  
     <!-- Apresenta uma mensagem de sucesso -->
+    <div class="alert alert-success mb-3 text-center">
+        <?php echo $mensagem; ?>                   
+    </div>
+    <?php endif; ?>
 
     <!-- Formulário com os dados para alteração -->
     <div class="container">
@@ -79,7 +131,7 @@
                         <div class="form-group">
                             <label for="text_nome">Nome:</label>
                             <input id="text_nome" 
-                                placeholder="Nome completo" 
+                                placeholder="<?php echo $dados_utilizador[0]['nome'];?>" 
                                 type="text" 
                                 name="text_nome" 
                                 class="form-control" 
@@ -91,7 +143,7 @@
                         <div class="form-group">
                             <label for="text_email">E-mail:</label>
                             <input id="text_email" 
-                                placeholder="exemple@gmail.com" 
+                                placeholder="<?php echo $dados_utilizador[0]['email'];?>" 
                                 type="email" 
                                 name="text_email" 
                                 class="form-control" 
@@ -101,12 +153,11 @@
                         </div>
                         <div class="text-center">
                             <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Calcelar</a>
-                            <button class="btn btn-primary btn-size-150">Gravar</button>
+                            <button class="btn btn-primary btn-size-150">Atualizar</button>
                         </div>                        
                 </form>
             </div>
         </div>    
     </div>
-    <?php endif; ?>    
-    
+    <?php endif; ?>        
 <?php endif; ?>

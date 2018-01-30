@@ -22,7 +22,7 @@
 
     //=========================================================================================
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        //ai buscar os valores do formulário
+        //vai buscar os valores do formulário
         $utilizador     = $_POST['text_utilizador'];
         $password       = $_POST['text_password'];
         $nome_completo  = $_POST['text_nome'];
