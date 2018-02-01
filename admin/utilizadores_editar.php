@@ -78,7 +78,7 @@
                                             WHERE id_utilizador = :id_utilizador', $parametros);
 
             $sucesso = true;
-            $mensagem = 'Dados atualizados com sucesso.';
+            $mensagem = 'Dados atualizados atualizados com sucesso.';
 
             //mostra os dados do utilizador atualizados
             $parametros = [
