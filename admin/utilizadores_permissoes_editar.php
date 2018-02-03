@@ -7,6 +7,10 @@
     if(!isset($_SESSION['a'])){
         exit();
     }
+
+    //sucesso ou erro
+    $sucesso = false;
+    $mensagem = '';
     
     //verificar permissões
     $erro_permissao = false;
@@ -30,7 +34,7 @@
     //=======================================================================
     $gestor = new cl_gestorBD();
     $dados_utilizador = null;
-    $erro = false;
+   /*  $erro = false; */
     /* $mensagem = ''; */
     if(!$erro_permissao){
         //vamos buscar os dados do utilizador
@@ -47,6 +51,46 @@
         } */
     }
 
+    //====================================================================
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){  
+        //permissões
+        $total_permissoes = (count(include('inc/permissoes.php')));
+        $permissoes = [];
+            if(isset($_POST['check_permissao'])){
+            $permissoes = $_POST['check_permissao'];
+        }
+        $permissoes_finais = '';
+            for($i = 0; $i < 100; $i++){
+                if($i < $total_permissoes){
+                    if(in_array($i, $permissoes)){
+                        $permissoes_finais.= '1';
+                    } else{
+                        $permissoes_finais.= '0';
+                    }
+                }else{
+                    $permissoes_finais.= '1';
+            }
+        }
+        //atualizar as permissões na base de dados
+        $parametros = [
+            'id_utilizador'  => $id_utilizador,
+            ':permissoes'    => $permissoes_finais,
+            ':atualizado_em' => DATAS::DataHoraAtualBD()
+        ];
+        $gestor->EXE_NON_QUERY('UPDATE utilizadores SET 
+                                permissoes = :permissoes,
+                                atualizado_em = :atualizado_em 
+                                WHERE id_utilizador = :id_utilizador', $parametros);
+        
+        //recarregar os dados do utilizador
+        $parametros = [':id_utilizador' => $id_utilizador];
+        $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
+                                                WHERE id_utilizador = :id_utilizador', $parametros);
+
+        $sucesso = true;
+        $mensagem = 'Dados atualizados com sucesso.';                                        
+    }
+
 ?>
 
 <?php if($erro_permissao) :?>
@@ -55,6 +99,11 @@
     <!-- Erro de falta de dados -->
     <!-- Sucesso na alteração dos dados --> 
     <!-- Apresenta uma mensagem de sucesso -->
+    <?php if($sucesso) : ?>
+     <div class="alert alert-success mb-3 text-center">
+        <?php echo $mensagem; ?>                   
+    </div>
+    <?php endif; ?>
      <!-- Formulário com os dados para alteração -->
     <div class="container">
         <div class="row justify-content-center">
@@ -79,7 +128,15 @@
                             foreach ($permissoes as $permissao) { ?>
                             <div class="checkbox">
                                 <label for="check_permissao">
-                                    <input type="checkbox" name="check_permissao[]" id="check_permissao" value="<?php echo $id ?>">
+
+
+                                    <?php
+                                         //vamos buscar o valor da permissão no utilizador
+                                         $ptemp = substr($dados_utilizador[0]['permissoes'], $id, 1);
+                                         $checked = $ptemp == '1' ? 'checked' : '';
+                                    ?>
+                                    <input type="checkbox" name="check_permissao[]" id="check_permissao" value="<?php echo $id ?>" <?php echo $checked ?>>
+
                                     <span class="permissoes-titulo"><?php echo  $permissao['permissao'] ?></span> 
                                 </label><br>   
                                     <p class="permissoes-sumario"><?php echo  $permissao['sumario'] ?></p>
