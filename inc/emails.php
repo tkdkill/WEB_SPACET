@@ -10,12 +10,12 @@
             // dados[1] = assunto
             // dados[2] = mensagem
 
-            require 'phpmailer/src/Exception.php';
-            require 'phpmailer/src/PHPMailer.php';
-            require 'phpmailer/src/SMTP.php';
+            require '../phpmailer/src/Exception.php';
+            require '../phpmailer/src/PHPMailer.php';
+            require '../phpmailer/src/SMTP.php';
 
             //configurações
-            $configs = include('inc/config.php');
+            $configs = include('../inc/config.php');
 
 		
             $mail = new PHPMailer();

@@ -9,7 +9,7 @@ class cl_gestorBD
     {
         //executa a query à base de dados (SELECT)
         $resultados = NULL;
-        $config = include('inc/config.php');
+        $config = include('config.php');
         //abre a ligação à base de dados
         $ligacao = new PDO(
             'mysql:host='.$config['BD_HOST'].
@@ -40,7 +40,7 @@ class cl_gestorBD
     public function EXE_NON_QUERY($query, $parametros = NULL, $fechar_ligacao = TRUE)
     {
         //executa uma query com ou sem parâmetros (INSERT, UPDATE, DELETE)
-        $config = include('inc/config.php');
+        $config = include('config.php');
         //abre a ligação à base de dados
         $ligacao = new PDO(
             'mysql:host='.$config['BD_HOST'].
@@ -74,7 +74,7 @@ class cl_gestorBD
     public function RESET_AUTO_INCREMENT($tabela){
         
         //faz reset ao auto_increment de uma determinada tabela ($tabela)
-        $config = include('inc/config.php');
+        $config = include('config.php');
         //abre a ligação à base de dados
         $ligacao = new PDO(
             'mysql:host='.$config['BD_HOST'].
