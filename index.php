@@ -1,7 +1,7 @@
 <?php
 
     // ==========================================
-    // Index do backend
+    // Index da página
     // ==========================================
     // controlo de sessão
     session_start();
@@ -11,13 +11,11 @@
 
     //inclui as funções necessárias do sistema
 
-    include_once('../inc/funcoes.php');
-    include_once('../inc/cl_datas.php');
-    include_once('../inc/emails.php');
-    include_once('../inc/gestorBD.php');
+    include_once('inc/funcoes.php');
+    include_once('inc/cl_datas.php');
+    include_once('inc/emails.php');
+    include_once('inc/gestorBD.php');
 
-     //barra do utilizador
-    include_once('users/barra_utilizador.php');
 
     include_once('_cabecalho.php');
 
