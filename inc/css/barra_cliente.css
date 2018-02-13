@@ -1,0 +1,23 @@
+/* barra de cliente */
+.barra-cliente {
+    background-color: black;
+    background: linear-gradient(black, rgb(14, 14, 121), black);
+    color: white;
+    padding: 10px;
+}
+.barra-cliente a:link {
+    color: white;
+    text-decoration: none;
+}
+.barra-cliente a:visited {
+    color: white;
+    text-decoration: none;
+}
+.barra-cliente a:hover {
+    color: rgb(197, 217, 233);
+    text-decoration: none;
+}
+.tbarra-cliente a:active {
+    color: rgb(197, 217, 233);
+    text-decoration: underline;
+}
