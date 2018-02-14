@@ -1,0 +1,12 @@
+@import url("barra_cliente.css");
+@import url("cabecalho.css");
+@import url("index.css");
+
+body{
+    background-color: black;   
+}
+
+.rodape {
+    color: white;
+}
+
