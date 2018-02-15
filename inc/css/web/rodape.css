@@ -1,0 +1,19 @@
+/* Rodapé */
+.rodape{
+    margin-top: 30px;
+    color: rgb(150, 150, 150);
+}
+.rodape a:link{
+    text-decoration: none;
+    color: rgb(150, 150, 150);
+}
+
+.rodape-social{
+    font-size: 2.0em;
+}
+
+.rodape-social a:link{
+    text-decoration: none;
+    color: rgb(150, 150, 150);
+
+}

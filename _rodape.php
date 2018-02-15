@@ -4,9 +4,21 @@
    // ==========================================
 ?>
 </div> 
-<div class="rodape text-center">
-  <p>Rodapé da página web</p>
-  </div>  
+
+<div class="container rodape">
+  <div class="row">
+    <div class="col-sm-6 col-12">
+      <p>SPACET &copy; <?php echo date('Y');?> | <i class="far fa-envelope"> <a href="mailto: spacetprojectap@gmail.com">spacetprojectap@gmail.com</a></i></p>
+      <p>Id cupidatat officia amet consequat Lorem laboris sunt sint cillum sit velit irure duis duis. Incididunt occaecat velit in veniam anim esse ea. Ut aliquip duis velit ea enim occaecat eu dolore sint cupidatat anim. Dolore sit dolor ex amet pariatur ea qui.</p>
+    </div>
+    <div class="col-sm-6 col-12 rodape-social text-right">
+      <a href="http://"><i class="fab fa-facebook-square mr-3"></i></a>
+      <a href="http://"><i class="fab fa-twitter-square mr-3"></i></a>
+      <a href="http://"><i class="fab fa-instagram mr-3"></i></a>
+      <a href="http://"><i class="fab fa-linkedin"></i></a>
+    </div>  
+  </div>
+</div>
 
 
 <!-- Optional JavaScript -->
