@@ -25,7 +25,7 @@
      <?php
      /*  ================================================ */
      /* incui a barra de clientes */ 
-     include_once("barra_cliente.php"); 
+     include_once("clientes/barra_cliente.php"); 
      ?> 
 
     <!-- Cabeçalho -->

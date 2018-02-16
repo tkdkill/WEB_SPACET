@@ -42,3 +42,17 @@ barra_utilizador.php
         <?php endif; ?>
 
     </div>
+
+    -- código pata inicio das páginas
+
+<?php
+// ==================================
+// xxxxxxxxxx
+// ==================================
+
+// verificar a sessão
+if(!isset($_SESSION['a'])){
+    exit();
+}
+
+?>

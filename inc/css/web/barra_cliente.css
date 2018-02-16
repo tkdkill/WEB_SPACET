@@ -2,11 +2,11 @@
 .barra-cliente {
     background-color: black;
     background: linear-gradient(black, rgb(14, 14, 121), black);
-    color: white;
+     color: rgb(150, 150, 150);
     padding: 10px;
 }
 .barra-cliente a:link {
-    color: white;
+     color: rgb(150, 150, 150);
     text-decoration: none;
 }
 .barra-cliente a:visited {
