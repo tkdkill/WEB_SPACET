@@ -8,6 +8,15 @@ if(!isset($_SESSION['a'])){
     exit();
 }
 
+// ==================================
+// verifica se foi feito um post
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    echo 'Formulário submetido';
+}else{
+     echo 'Formulário não submetido';
+}
+
+
 ?>
 
 <div class="container signup p-2">
@@ -18,39 +27,39 @@ if(!isset($_SESSION['a'])){
                 <!-- Nome completo do cliente -->
                 <div class="form-group">
                     <label for="nome_completo">Nome completo:</label>
-                    <input class="form-control" type="text" name="text_nome_completo" id="nome_completo" placeholder="Nome Completo" require>
+                    <input class="form-control" type="text" name="text_nome_completo" id="nome_completo" placeholder="Nome Completo" required>
                 </div>
                 <!-- email -->
                 <div class="form-group">
                     <label for="email">E-mail:</label>
-                    <input class="form-control" type="email" name="text_email" id="email" placeholder="Email" require>
+                    <input class="form-control" type="email" name="text_email" id="email" placeholder="Email" required>
                 </div>
                 <!-- nome de utilizador -->
                 <div class="form-group">
                     <label for="utilizador">Utilizador:</label>
-                    <input class="form-control" type="text" name="text_utilizador" id="utilizador" placeholder="User" require>
+                    <input class="form-control" type="text" name="text_utilizador" id="utilizador" placeholder="User" required>
                 </div>
                 <!-- password -->
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input class="form-control" type="password" name="text_password" id="password" placeholder="Password" require>
+                    <input class="form-control" type="password" name="text_password" id="password" placeholder="Password" required>
                 </div>
                 <!-- confirma password -->
                 <div class="form-group">
                     <label for="Confirma_password">Corfirmação Password:</label>
-                    <input class="form-control" type="confirma_password" name="text_confirma_password" id="Confirma_password" placeholder="Confirmação Password" require>
+                    <input class="form-control" type="confirma_password" name="text_confirma_password" id="Confirma_password" placeholder="Confirmação Password" required>
                 </div>
                 <!-- Aceitação dos termos de utilização -->
-                <div class="text-center">
-                    <input class="mr-2" type="checkbox" name="check_termos" id="check_termos" require>
+                <div class="text-center mb-3">
+                    <input class="mr-2" type="checkbox" name="check_termos" id="check_termos" required>
                     <label for="check_termos">Li e Aceito os <a href="">Termos de Utilização.</a></label>
 
                 </div>
 
                 <!-- Submeter -->
                 <div class="text-center">
-                <button class="btn btn-primary btn-size-150 mb-3">Criar cliente</button>
-                <button class="btn btn-primary btn-size-150 mb-3" type="reset">Limpar Campos</button>
+                    <button type="submit" class="btn btn-primary btn-size-150 mb-3">Criar cliente</button>
+                    <button class="btn btn-primary btn-size-150 mb-3" type="reset">Limpar Campos</button>
                 </div>
             </form>
 

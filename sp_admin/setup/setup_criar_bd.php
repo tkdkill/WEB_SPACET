@@ -10,7 +10,7 @@ if(!isset($_SESSION['a'])){
 
     //criar a base de dados
     $gestor = new cl_gestorBD();
-    $configs = include('inc/config.php');
+    $configs = include('../inc/config.php');
 
     //apagar a base de dados caso ela exista
     $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.$configs['BD_DATABASE']);
@@ -46,6 +46,23 @@ if(!isset($_SESSION['a'])){
         'utilizador                 NVARCHAR(50), '.
         'mensagem                   NVARCHAR(200))'
     );
+
+    //-----------------------------------------------------
+    // Clientes
+    $gestor->EXE_NON_QUERY(
+        'CREATE TABLE clientes('.
+        'id_cliente                 INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, '.
+        'nome                       NVARCHAR(50), '.
+        'email                      NVARCHAR(50), '.
+        'utilizador                 NVARCHAR(50), '.
+        'palavra_passe              NVARCHAR(200), '.
+        'codigo_validacao           NVARCHAR(200),'.
+        'validada                   TINYINT,'.
+        'criado_em                  DATETIME, '.
+        'atualizado_em              DATETIME)'
+    );
+
+    // -------------------------
 
 ?>
 <div class="alert alert-success text-center">Base de dados criada com sucesso.</div>
