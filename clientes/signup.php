@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             ':email'            => $email,
             ':utilizador'       => $utilizador,
             ':palavra_passe'    => md5($password),
-            ':codigo_validacao' => funcoes::CriarCodigoAlfanumerico(30),
+            ':codigo_validacao' => funcoes::CriarCodigoAlfanumericoSemSinais(30),
             ':validada'         => 0,
             ':criado_em'        => DATAS::DataHoraAtualBD(),
             ':atualizado_em'    => DATAS::DataHoraAtualBD()
@@ -82,13 +82,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                                VALUES
                                (:nome, :email, :utilizador, :palavra_passe, :codigo_validacao, :validada, :criado_em, :atualizado_em)
                                ', $parametros);
+        
+        //envio do email para o cliente validar a sua conta
+        $email_a_enviar = new emails();
+        
+        //criar o link de ativação
+        $config = include('inc/config.php');
+        $link = $config['BASE_URL'].'?a=validar&v='.$parametros[':codigo_validacao'];
 
-        echo '<div class="alert alert-success  text-center">Utilizador Criado com sucesso</div>';
-        //Limpar os campos
+        //preparação dos dados de email
+            $temp = [
+                $email,
+                'SPACET - Ativação da conta de cliente',
+                /*
+                Conteudo do texto
+                1 - endereço base da página 
+                2 - a=validar (route)
+                3 - v=código de validação
+                 */
+                '
+                <p>Clique no link seguinte para validar a sua conta de cliente</p>'.
+                '<a href="'.$link.'">'.$link.'</a>'
+            ];
+            //envio do email
+            $mensagem_emviada = $email_a_enviar->EnviarEmailCliente($temp);
+
+            echo '<div class="alert alert-success  text-center">Utilizador Criado com sucesso</div>';
         // dados de Cliente
         $nome       = '';
         $email      = '';
-        $utilizador = '';                      
+        $utilizador = '';
+
     }
    /*  $mensagem = 'Utilizador Criado com sucesso'; */
 

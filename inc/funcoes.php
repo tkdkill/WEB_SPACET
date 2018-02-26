@@ -54,6 +54,18 @@
         }
 
         //=================================================
+        public static function CriarCodigoAlfanumericoSemSinais($numChars){
+            //criar um código leatório alfanumérico para os clientes do site
+            $codigo = '';
+            $caracteres = 'abcdefghijklmopqrstvxywzABCDEFGHIJKLMOPQRSTVXYWZ0123456789';
+            for($i = 0; $i < $numChars; $i++){
+                $codigo .= substr($caracteres, rand(0, strlen($caracteres)), 1);
+            }
+            return $codigo;
+
+        }
+
+        //=================================================
         public static function CriarLOG($mensagem, $utilizador){
             //cria um registo em LOGS
             $gestor = new cl_gestorBD();

@@ -19,7 +19,10 @@
     'MAIL_PORT'         => '587',
     'MAIL_USERNAME'     => 'spacetprojectap@gmail.com',
     'MAIL_PASSWORD'     => 'spacetap',
-    'MAIL_FROM'         => 'spacetprojectap@gmail.com'
+    'MAIL_FROM'         => 'spacetprojectap@gmail.com',
+
+    //endereço base
+    'BASE_URL'          => 'http://localhost:8090/SPACET/'
 
     ]
 
