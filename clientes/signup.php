@@ -108,7 +108,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $mensagem_emviada = $email_a_enviar->EnviarEmailCliente($temp);
 
             echo '<div class="alert alert-success  text-center">Utilizador Criado com sucesso</div>';
-        // dados de Cliente
+        //Limpar dados dos inputs
         $nome       = '';
         $email      = '';
         $utilizador = '';
