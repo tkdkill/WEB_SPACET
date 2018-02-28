@@ -24,11 +24,7 @@ switch ($a) {
         include_once('webgeral/home.php');
         break;
     // ==================================
-    // Login
-    case 'login':
-        include_once('clientes/login.php');
-        break;
-    // Login
+    // signup
     case 'signup':
         include_once('clientes/signup.php');
         break;
