@@ -17,6 +17,7 @@
         3. e se o cliente altera o código de validação manualmente?
     */
     $erro = false;
+    $sucesso = false;
     $mensagem = "";
 
     //verifica se o valor 'v' está definido no url
@@ -34,7 +35,7 @@
         $parametros = [
             ':codigo_validacao'  => $codigo_ativacao
         ];
-        $dados = $gestor->EXE_QUERY('SELECT * FROM clientes WHERE codigo_validacao = :codigo_ativacao', $parametros);
+        $dados = $gestor->EXE_QUERY('SELECT * FROM clientes WHERE codigo_validacao = :codigo_validacao', $parametros);
 
         //verificar se foi encontrado um cliente com o código de ativação
         if(count($dados) == 0){
@@ -43,17 +44,33 @@
             $mensagem = "Não existe nenhum cliente com esse código.";
         }
 
-        //vamos verificar se validada já estava com valor 1
+        //vamos verificar se 'validada' já estava com valor 1
         if(!$erro){
-            
+            if($dados[0]['validada'] == 1){
+                $erro = true;
+                $mensagem = 'Esta conta já está validada.';
+            }
+        }
+
+        //finalmente (ultrapassados os erro possiveis) > validar a conta
+        if(!$erro){
+            $parametros = [
+                ':id_cliente'   => $dados[0]['id_cliente']
+            ];
+            $gestor->EXE_NON_QUERY('UPDATE clientes SET validada = 1
+                                    WHERE id_cliente = :id_cliente', $parametros);
+            //informar o cliente que a sua conta foi ativada
+            $sucesso = true;
+            $mensagem = 'Conta ativada com sucesso';     
         }
 
     }
 ?>
 
 <?php if($erro): ?>
-    <div class="alert alert-danger text-center"><?php $mensagem ?></div>;
+    <div class="alert alert-danger text-center"><?php echo $mensagem ?></div>;
     
-<?php else :  ?>
+<?php elseif($sucesso) :  ?>
+    <div class="alert alert-success text-center"><?php echo $mensagem ?></div>;
 
 <?php endif; ?>

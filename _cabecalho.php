@@ -30,6 +30,6 @@
 
     <!-- Cabeçalho -->
     <div class="container-fluid cabecalho">
-     <img src="images/logo.png" alt="logo">
+    <a href="http://localhost:8090/SPACET"><img src="images/logo.png" alt="logo"></a>    
     </div>
   
