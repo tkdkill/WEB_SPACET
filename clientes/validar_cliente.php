@@ -68,9 +68,9 @@
 ?>
 
 <?php if($erro): ?>
-    <div class="alert alert-danger text-center"><?php echo $mensagem ?></div>;
+    <div class="alert alert-danger text-center"><?php echo $mensagem ?></div>
     
 <?php elseif($sucesso) :  ?>
-    <div class="alert alert-success text-center"><?php echo $mensagem ?></div>;
+    <div class="alert alert-success text-center"><?php echo $mensagem ?></div>
 
 <?php endif; ?>

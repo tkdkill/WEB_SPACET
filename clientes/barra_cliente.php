@@ -13,12 +13,12 @@ if(!isset($_SESSION['a'])){
 <div class="container-fluid barra-cliente">
     <div class="text-right"><span>
 
-        <div class="dropdown">
+        <div class="dropdown d=inline">
             <!-- inrerreptor -->
             <a href="?a=login" class="mr-3 id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false""><i class="fas fa-sign-in-alt"></i> Login</a>|
             <!-- Caixa -->
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <form class="px-4 py-3" method="Post">
+                <form action="?a=login" class="px-4 py-3" method="Post">
                 <div class="form-group">
                     <label for="txtUtilizador">Utilizador</label>
                     <input type="text" 
@@ -34,7 +34,7 @@ if(!isset($_SESSION['a'])){
                     <label for="txtPassword">Password</label>
                     <input type="password" 
                            class="form-control" 
-                           name="text_utilizador" 
+                           name="text_password" 
                            id="txtPassword" 
                            placeholder="Password" 
                            required 
@@ -43,7 +43,7 @@ if(!isset($_SESSION['a'])){
                            
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input ml-1" id="dropdownCheck">
+                    <input type="checkbox" name="text_checkbox" class="form-check-input ml-1" id="dropdownCheck">
                     <label class="form-check-label ml-1" for="dropdownCheck">
                         Mantenha-me ligado
                     </label>
@@ -55,8 +55,10 @@ if(!isset($_SESSION['a'])){
                     <a href="#">Recuperar Senha?</a>
                 </div>
                 </form>       
-            </div>     
-                <a href="?a=signup" class="ml-3"> <i class="fas fa-user-plus"></i> Signup</a></span>
+            </div>
+                <div class="d-inline">     
+                    <a href="?a=signup" class="ml-3"> <i class="fas fa-user-plus"></i> Signup</a></span>
+                </div>
         </div>
     </div>
 </div>    
