@@ -9,7 +9,7 @@ if(!isset($_SESSION['a'])){
 }
 
 $erro = false;
-$sucesso = false;
+/* $sucesso = false; */
 $mensagem = '';
 
 //verifica se os dados de login estão corretos
@@ -45,11 +45,12 @@ if(count($dados) == 0){
 
 if(!$erro){
     //login efetuado com sucesso
-    $sucesso = true;
-    $mensagem = "login com sucesso";
+    /* $sucesso = true;
+    $mensagem = "login efetuado com sucesso"; */
+
+    funcoes::IniciarSessaoCliente($dados);
 
 }
-
 
 /* echo "$utilizador <br> $password <br> $manterLogado"; */
 
@@ -58,9 +59,16 @@ if(!$erro){
 <?php if($erro): ?>
     <div class="alert alert-danger text-center"><?php echo $mensagem ?></div>
     
-<?php elseif($sucesso) :  ?>
-    <div class="alert alert-success text-center">
-        <p>O utilizador <?php echo $utilizador . "&nbsp efetuou o " . $mensagem ?></p>
+<?php else :  ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 offset-4 borda text-center mt-5 mb-5 card p-4">
+                <p>Bem-vindo(a) <b><?php echo $dados[0]['nome'] ?>.</p>
+                <div class="col-12 text-center mt-3">
+                    <a href="?a=home" class="btn btn-primary btn-size-100 center">Ok</a>
+                </div>
+            </div>
+        </div>
     </div>
 
 <?php endif; ?>

@@ -158,11 +158,11 @@
   text-align: right;
   background-color: #202020;
   color: #8fa9e2; }
-  .barra_utilizadores a {
+.barra_utilizadores a {
     text-decoration: none;
     color: black;
     background-color: white; }
-  .barra_utilizadores a:hover {
+.barra_utilizadores a:hover {
     color: #c2c2c2;
     background-color: #5f5f5f; }
 
