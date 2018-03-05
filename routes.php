@@ -32,6 +32,11 @@ switch ($a) {
     case 'signup':
         include_once('clientes/signup.php');
         break;
+    // logout-Cliente
+    case 'logout_cliente':
+        include_once('clientes/logout_cliente.php');
+        break;    
+
     // ==================================
     // validar conta de cliente
     case 'validar':

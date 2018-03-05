@@ -13,6 +13,30 @@ if(!isset($_SESSION['a'])){
 <div class="container-fluid barra-cliente">
     <div class="text-right"><span>
 
+        <!-- Cliente logado -->
+        <?php if(funcoes::VerificarLoginCliente()) : ?>
+        
+        
+        <!-- <i class="fas fa-cog mr-2 ml-3"></i> -->
+        <!-- <i class="fas fa-sign-out-alt"></i> -->
+        <div class="dropdown">
+                <span class="mr-3"><i class="fas fa-user mr-2"></i> <?php echo $_SESSION['nome_cliente']?></span>
+                <button class="btn btn-secondary dropdown-toggle dropdown-cliente-bt" type="button" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu dropdown-cliente barra-cliente-logado" aria-labelledby="d1">
+                    <a class="dropdown-item" href="?a=perfil"><i class="far fa-user mr-2"></i>Acesso ao Perfil</a>
+                    <a class="dropdown-item" href="?a=perfil_alterar_password"><i class="fa fa-lock mr-2" aria-hidden="true"></i>Alterar Password</a>
+                    <a class="dropdown-item" href="?a=perfil_alterar_email"><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Alterar Email</a>
+                    <div class="dropdown-divider"></div>     
+
+                    <a class="dropdown-item" href="?a=logout_cliente"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
+                </div>
+            </div>    
+        
+        <?php else : ?>
+
+        <!-- Cliente não logado -->
         <div class="dropdown d=inline">
             <!-- inrerreptor -->
             <a href="?a=login" class="mr-3 id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false""><i class="fas fa-sign-in-alt"></i> Login</a>|
@@ -60,7 +84,6 @@ if(!isset($_SESSION['a'])){
                     <a href="?a=signup" class="ml-3"> <i class="fas fa-user-plus"></i> Signup</a></span>
                 </div>
         </div>
+    <?php endif;?>    
     </div>
 </div>    
-
-

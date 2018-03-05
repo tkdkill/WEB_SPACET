@@ -2,7 +2,7 @@
 .barra-cliente {
     background-color: black;
     background: linear-gradient(black, rgb(14, 14, 121), black);
-     color: rgb(150, 150, 150);
+    color: rgb(150, 150, 150);
     padding: 10px;
 }
 .barra-cliente a:link {
@@ -17,7 +17,24 @@
     color: rgb(197, 217, 233);
     text-decoration: none;
 }
-.tbarra-cliente a:active {
+.barra-cliente a:active {
     color: rgb(197, 217, 233);
     text-decoration: underline;
+}
+
+.dropdown-cliente {
+    text-decoration: black;
+    background-color: rgb(14, 14, 121);
+}
+
+.dropdown-cliente-bt{
+    color: rgb(150, 150, 150);
+    background-color: rgb(14, 14, 121);
+    
+}
+
+.barra-cliente-logado a:hover {
+    color: rgb(197, 217, 233);
+    text-decoration: none;
+    color: black;
 }
