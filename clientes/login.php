@@ -65,7 +65,7 @@ if(!$erro){
             <div class="col-4 offset-4 borda text-center mt-5 mb-5 card p-4">
                 <p>Bem-vindo(a) <b><?php echo $dados[0]['nome'] ?>.</p>
                 <div class="col-12 text-center mt-3">
-                    <a href="?a=home" class="btn btn-primary btn-size-100 center">Ok</a>
+                    <a href="?a=home" class="btn btn-primary btn-size-150 center">Ok</a>
                 </div>
             </div>
         </div>

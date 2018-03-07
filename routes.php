@@ -23,7 +23,14 @@ switch ($a) {
     case 'home':
         include_once('webgeral/home.php');
         break;
+
     // ==================================
+    //CLIENTES
+
+    // validar conta de cliente
+    case 'validar':
+        include_once('clientes/validar_cliente.php');
+        break;
     // login
     case 'login':
         include_once('clientes/login.php');
@@ -36,12 +43,7 @@ switch ($a) {
     case 'logout_cliente':
         include_once('clientes/logout_cliente.php');
         break;    
-
-    // ==================================
-    // validar conta de cliente
-    case 'validar':
-        include_once('clientes/validar_cliente.php');
-        break;
+    
     
 }
 
