@@ -1,6 +1,21 @@
 /* perfil */
 
 .perfil{
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
+    background: linear-gradient(rgb(7, 63, 128), rgb(134, 164, 199));
     color: black;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+    
+    
+}
+
+.btn-link:hover {
+    text-decoration: none;
+    background-color: rgb(0, 81, 255);
+    color: white;
 }
