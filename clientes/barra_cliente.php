@@ -75,7 +75,7 @@ if(!isset($_SESSION['a'])){
                 
                 <button type="submit" class="btn btn-primary btn-size-100">Entrar</button>
                 <a href="?a=signup" class="btn btn-primary btn-size-100">Signup</a><br><br>
-                <div class="text-center">
+                <div class="text-center dropdown-menu-naoLogado">
                     <a href="#">Recuperar Senha?</a>
                 </div>
                 </form>       

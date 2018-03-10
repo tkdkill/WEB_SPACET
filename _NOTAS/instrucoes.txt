@@ -56,3 +56,6 @@ if(!isset($_SESSION['a'])){
 }
 
 ?>
+
+// zerar o auto_increment nas tabelas em SQL
+// alter table clientes AUTO_INCREMENT = 1; 
