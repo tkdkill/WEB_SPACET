@@ -26,8 +26,6 @@ if(!isset($_SESSION['a'])){
                 </button>
                 <div class="dropdown-menu dropdown-cliente barra-cliente-logado" aria-labelledby="d1">
                     <a class="dropdown-item" href="?a=perfil"><i class="far fa-user mr-2"></i>Acesso ao Perfil</a>
-                    <a class="dropdown-item" href="?a=perfil_alterar_password"><i class="fa fa-lock mr-2" aria-hidden="true"></i>Alterar Password</a>
-                    <a class="dropdown-item" href="?a=perfil_alterar_email"><i class="fa fa-envelope mr-2" aria-hidden="true"></i>Alterar Email</a>
                     <div class="dropdown-divider"></div>     
 
                     <a class="dropdown-item" href="?a=logout_cliente"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>

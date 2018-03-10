@@ -42,7 +42,11 @@ switch ($a) {
     // logout-Cliente
     case 'logout_cliente':
         include_once('clientes/logout_cliente.php');
-        break;    
+        break;  
+    // perfil
+    case 'perfil':
+        include_once('clientes/perfil.php');
+        break;  
     
     
 }
