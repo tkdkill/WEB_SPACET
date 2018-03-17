@@ -12,17 +12,47 @@
         exit();
     }
 
+    $erro = false;
+    $sucesso = false;
+    $mensagem ='';
+
     //====================================================
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $p = $_GET['p'];
+        $id_cliente = $_SESSION['id_cliente'];
+        $gestor = new cl_gestorBD();
 
         switch ($p) {
             //-----------------------------------------
             case 1:
                 # alterar o nome do utilizador
-                echo 'nome de cliente ';
+                $parametros = [
+                    ':id_cliente' => $id_cliente,
+                    ':nome'       => $_POST['txt_nome']
+                ];
 
+                $dados = $gestor->EXE_QUERY('SELECT id_cliente, nome 
+                                             FROM clientes 
+                                             WHERE id_cliente <> :id_cliente 
+                                             AND nome = :nome', $parametros);
+                if(count($dados) != 0){
+                    //foi encontrado outro cliente com o mesmo nome
+                    $erro = true;
+                    $mensagem = 'Já existe outro cliente com o mesmo nome.';
+                }else{
+                    $parametros = [
+                        ':id_cliente'       => $id_cliente,
+                        ':nome'             => $_POST['txt_nome'],
+                        ':atualizado_em'    => DATAS::DataHoraAtualBD()
+                    ];
+                    $gestor->EXE_NON_QUERY('UPDATE clientes 
+                                                     SET nome = :nome, atualizado_em = :atualizado_em 
+                                                     WHERE id_cliente = :id_cliente', $parametros);
+                    $sucesso = true;
+                    $mensagem = "Nome alterado com sucesso.";
+                    
+                }
                 break;
             //-----------------------------------------
             case 2:
@@ -55,6 +85,20 @@
     $dados = $dados_cliente[0]; //passar os dados todos para um array unidimensional
 
 ?>
+
+<!-- erro -->
+<?php if($erro) : ?>
+    <div class="alert alert-danger text-center">
+        <p><?php echo $mensagem; ?></p>
+    </div>
+<?php endif; ?>
+
+<!-- sucesso -->
+<?php if($sucesso) : ?>
+    <div class="alert alert-success text-center">
+        <p><?php echo $mensagem; ?></p>
+    </div>
+<?php endif; ?>
 
 <div class="container-fluid perfil">
     <div class="container pt-5 pb-5">
