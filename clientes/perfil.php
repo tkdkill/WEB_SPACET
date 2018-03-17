@@ -57,8 +57,40 @@
             //-----------------------------------------
             case 2:
                 # alterar o email do utilizador
-                echo 'Email de cliente ';
+                $text_email_1 = $_POST['txt_email'];
+                $text_email_2 = $_POST['txt_email_repetir'];
 
+                $parametros = [
+                    ':id_cliente'    => $id_cliente,
+                    ':email'         => $_POST['txt_email'],
+                ];
+                $dados = $gestor->EXE_QUERY('SELECT id_cliente, email 
+                                             FROM clientes 
+                                             WHERE id_cliente <> :id_cliente 
+                                             AND email = :email', $parametros);
+
+                //verifica se já existe outro cliente com o mesmo email                             
+                if(count($dados) != 0){
+                     //foi encontrado outro cliente com o mesmo nome
+                    $erro = true;
+                    $mensagem = 'Já existe outro cliente com o mesmo email.';
+                //verifica se os emails intoduzidos correspondem        
+                }elseif($text_email_1 != $text_email_2){
+                    // se os emails não coincidirem
+                    $erro = true;
+                    $mensagem = 'Os emails não coincidem! tente novamente.';
+                }else{
+                    $parametros = [
+                        ':id_cliente'       => $id_cliente,
+                        ':email'            => $_POST['txt_email'],
+                        ':atualizado_em'    => DATAS::DataHoraAtualBD()  
+                    ];
+                    $gestor->EXE_NON_QUERY('UPDATE clientes 
+                                            SET email = :email, atualizado_em = :atualizado_em 
+                                            WHERE id_cliente = :id_cliente', $parametros );
+                    $sucesso = true;
+                    $mensagem = "Email alterado com sucesso.";    
+                }                             
                 break;    
             //-----------------------------------------
             case 3:
