@@ -24,6 +24,10 @@ if(!isset($_SESSION['a'])){
             //inserir utilizadores
             include('setup/setup_inserir_utilizadores.php');
             break;
+        case 'setup_inserir_clientes':
+            //inserir clientes
+            include('setup/setup_inserir_clientes.php');
+            break;    
             
         
     }
@@ -39,6 +43,8 @@ if(!isset($_SESSION['a'])){
         <p><a href="?a=setup_criar_bd" class="btn btn-secondary btn-size-250">Criar a Base de Dados</a></p>
         <!-- inserir usuários/utilizadores -->
         <p><a href="?a=setup_inserir_utilizadores" class="btn btn-secondary btn-size-250">Inserir utilizadores</a></p>
+        <!-- inserir clientes -->
+        <p><a href="?a=setup_inserir_clientes" class="btn btn-secondary btn-size-250">Inserir clientes</a></p>
 
         <hr>
         <p><a href="?a=inicio" class="btn btn-secondary btn-size-150">Voltar</a></p>
