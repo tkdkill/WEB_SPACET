@@ -95,15 +95,46 @@
             //-----------------------------------------
             case 3:
                 # alterar a password do utilizador
-                echo 'password de cliente ';
+                $text_senha_atual = $_POST['txt_senha_atual'];
+                $text_senha_nova = $_POST['txt_senha_nova'];
+                $text_senha_nova_1 = $_POST['txt_senha_nova_1'];
 
+                //verificar se a senha atual é igual há da base de dados
+                $parametros = [
+                    ':id_cliente' => $id_cliente,
+                    ':palavra_passe' => md5($text_senha_atual)
+                ];
+
+                $dados = $gestor->EXE_QUERY('SELECT id_cliente, palavra_passe 
+                                             FROM clientes 
+                                             WHERE id_cliente = :id_cliente
+                                             AND palavra_passe = :palavra_passe', $parametros);
+                if(count($dados) == 0){
+                    $erro = true;
+                    $mensagem = 'A password introduzida não coresponde!';
+                }                             
+                //verificar se nova senha e senha repetidas são iguais
+                if(!$erro){
+                    if($text_senha_nova != $text_senha_nova_1){
+                        $erro = true;
+                        $mensagem = 'As passwords inseridas não coincidem.';
+                    }else{
+                        //atualizar nova senha na base de dados
+                        $parametros = [
+                            ':id_cliente'       => $id_cliente,
+                            ':palavra_passe'    => md5($text_senha_nova),
+                            ':atualizado_em'    => DATAS::DataHoraAtualBD()
+                        ];
+                        $gestor->EXE_NON_QUERY('UPDATE clientes 
+                                                SET palavra_passe = :palavra_passe, atualizado_em = :atualizado_em 
+                                                WHERE id_cliente = :id_cliente', $parametros);
+                        $sucesso = true;
+                        $mensagem = 'Password alterada com sucesso';                        
+                    }
+                }
                 break;
         }
     }
-    
-
-
-
     //====================================================
 
     //vamos buscar os dados do cliente
